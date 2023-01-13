@@ -19,7 +19,7 @@ a {
 }
 
 a:hover {
-  color: #aa4a4a;
+  color: #7dbfe6;
   text-decoration: none;
 }
 
@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 0;
 }
 .back-to-top:hover {
-  background: #e64b4b;
+  background: #7dbfe6;
   color: #fff;
 }
 .back-to-top.active {
@@ -83,9 +83,9 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 #header .logo img {
-  padding: 0;
-  margin: 0;
-  max-height: 40px;
+  padding: 10px 0;
+  margin: 5px 0;
+  max-height: 80px;
 }
 
 .scrolled-offset {
@@ -116,18 +116,18 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-size: 14px;
+  font-size: 18px;
   color: #2c4964;
   white-space: nowrap;
   transition: 0.3s;
 }
 .navbar a i, .navbar a:focus i {
-  font-size: 12px;
+  font-size: 20px;
   line-height: 0;
   margin-left: 5px;
 }
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #d85f5f;
+  color: #7dbfe6;
 }
 .navbar .dropdown ul {
   display: block;
@@ -155,7 +155,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
 }
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #d43076;
+  color: #7dbfe6;
 }
 .navbar .dropdown:hover > ul {
   opacity: 1;
@@ -240,7 +240,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #2c4964;
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #d43076;
+  color: #7dbfe6;
 }
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
@@ -266,15 +266,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
 }
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #d43076;
+  color: #7dbfe6;
 }
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;
 }
 
-/*--------------------------------------------------------------
+/*
 # Hero Section
---------------------------------------------------------------*/
+
 #hero {
   width: 100%;
   height: 75vh;
@@ -322,13 +322,13 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 24px;
     margin-bottom: 30px;
   }
-}
+}*/
 
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding: 60px 30px;
 }
 
 .section-bg {
@@ -344,7 +344,7 @@ section {
   margin-bottom: 15px;
   padding-bottom: 15px;
   position: relative;
-  color: #d85f5f;
+  color: #7dbfe6;
 }
 .section-title h2::after {
   content: "";
@@ -358,6 +358,11 @@ section {
 }
 .section-title p {
   margin-bottom: 0;
+}
+
+.section-text{
+  display:inline-block;
+  padding-bottom: 10%;
 }
 
 /*--------------------------------------------------------------
@@ -404,25 +409,25 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-.about .content {
+/*.about .content {
   padding: 30px 0;
-}
+}*/
 .about .content h3 {
   font-weight: 500;
   font-size: 34px;
-  color: #d85f5f;
+  color: #7dbfe6;
 }
 .about .content p {
   margin-bottom: 0;
 }
-.about .content .count-box {
+/*.about .content .count-box {
   padding: 20px 0;
   width: 100%;
-}
+}*/
 .about .content .count-box i {
   display: block;
   font-size: 36px;
-  color: #eeafca;
+  color: #bbcdf3;
   float: left;
   line-height: 0;
 }
@@ -455,10 +460,22 @@ section {
   color: #6b96be;
 }
 .about .image {
-  background: url("../img/me.jpg") center center no-repeat;
   background-size: cover;
-  min-height: 400px;
+  min-height: 70vh;
 }
+
+.animation{
+    position: relative;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-delay: -3s;
+  }
+  
+  @keyframes example {
+    75%  { left:0px; top:200px;}
+    100% { left:0px; top:0px;}
+  }
+
 @media (max-width: 991px) {
   .about .image {
     text-align: center;
@@ -501,7 +518,7 @@ section {
   width: 1px;
   height: 10px;
   transition: 0.9s;
-  background-color: #475a91;
+  background-color: #89bad6;
 }
 
 /*--------------------------------------------------------------
@@ -518,7 +535,7 @@ section {
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
-  border-left: 2px solid #d85f5f;
+  border-left: 2px solid #7dbfe6;
   position: relative;
 }
 .resume .resume-item h4 {
@@ -555,7 +572,7 @@ section {
   left: -9px;
   top: 0;
   background: #fff;
-  border: 2px solid #f15858;
+  border: 2px solid #7dbfe6;
 }
 
 /*--------------------------------------------------------------
@@ -571,6 +588,10 @@ section {
   border-radius: 8px;
   text-align: center;
   z-index: 1;
+}
+.icon-box{
+  padding-bottom: 10%;
+  margin-bottom: 5%;
 }
 .services .icon-box::before {
   content: "";
@@ -625,7 +646,7 @@ section {
   background: #fff;
 }
 .services .icon-box:hover .icon i {
-  color: #d85f5f;
+  color: #7dbfe6;
 }
 @media (max-width: 768px) {
   .services .icon-box::before {
@@ -638,6 +659,9 @@ section {
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
   margin-bottom: 30px;
+}
+.portfolio-wrap{
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.3); 
 }
 .portfolio #portfolio-flters {
   padding: 0;
@@ -657,7 +681,7 @@ section {
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
-  color: #c97777;
+  color: #7fb2ca;
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
 }
@@ -675,7 +699,7 @@ section {
 }
 .portfolio .portfolio-wrap::before {
   content: "";
-  background: rgba(167, 90, 87, 0.6);
+  background: rgba(154, 216, 252, 0.6);
   position: absolute;
   left: 30px;
   right: 30px;
@@ -759,7 +783,7 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #a15454;
+  border: 1px solid #7dbfe6;
 }
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
   background-color: #030f20;
@@ -888,12 +912,12 @@ section {
 }
 .contact .contact-about p {
   font-size: 14px;
-  line-height: 24px;
+  line-height: 35px;
   font-family: "Playfair Display", serif;
   color: #3c6387;
 }
 .contact .social-links {
-  padding-bottom: 20px;
+  padding-left: 5%;
 }
 .contact .social-links a {
   font-size: 18px;
