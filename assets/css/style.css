@@ -8,6 +8,11 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+:root {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #5a656e;
@@ -1050,3 +1055,5 @@ section {
 .carousel-item:hover img{
   transform: scale(1.25);
 }
+
+
