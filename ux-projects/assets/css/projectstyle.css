@@ -14,12 +14,12 @@ body {
   }
   
   a {
-    color: #3fbbc0;
+    color: #3f68c0;
     text-decoration: none;
   }
   
   a:hover {
-    color: #65c9cd;
+    color: #809eda;
     text-decoration: none;
   }
   
@@ -51,7 +51,7 @@ body {
     position: fixed;
     top: calc(50% - 30px);
     left: calc(50% - 30px);
-    border: 6px solid #3fbbc0;
+    border: 6px solid #3f6ac0;
     border-top-color: #ecf8f9;
     border-radius: 50%;
     width: 60px;
@@ -91,7 +91,7 @@ body {
     right: 15px;
     bottom: 15px;
     z-index: 9999;
-    background: #303bd4;
+    background: #5b61be;
     width: 40px;
     height: 40px;
     border-radius: 50px;
@@ -103,7 +103,7 @@ body {
     line-height: 0;
   }
   .back-to-top:hover {
-    background: #7dbfe6;
+    background: #89baf3;
     color: #fff;
   }
   .back-to-top.active {
@@ -346,6 +346,8 @@ body {
   .section-bg {
     background: linear-gradient(180deg, #e0e4f8 0%, #fff 100%);
     animation: fade 5s linear infinite; /* Apply fade animation */
+    padding:0;
+    margin : 0;
   }
 
   .section-bg1 {
@@ -636,6 +638,13 @@ body {
     border-radius: 10px;
     margin-bottom: 20px; /* Optional: Add some bottom margin for spacing */
   }
+
+  .orange-box {
+    background-color: rgba(254, 212, 157, 0.2); /* Blue color with 20% opacity */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Optional: Add some bottom margin for spacing */
+  }
   
   
   
@@ -716,6 +725,7 @@ body {
     background-size: cover;
     min-height: 400px;
   }
+  
   
   /*--------------------------------------------------------------
   # Services
@@ -1382,6 +1392,61 @@ body {
         padding-bottom: 75%; /* 4:3 aspect ratio for smaller screens */
     }
 }
+
+
+/*-------------------------------------------------------------
+# LightBox
+--------------------------------------------------------------*/
+
+
+.card {
+  transition: transform 0.2s;
+   cursor: pointer;
+  }
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+
+.card-img-top {
+  transition: transform 0.2s;
+ }
+ 
+.card:hover .card-img-top {
+  transform: scale(1.2);
+ }
+
+ .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lightbox img {
+        max-width: 80%;
+        max-height: 80%;
+        border: 8px solid white;
+        box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.7);
+        animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+
   
   /*--------------------------------------------------------------
   # Footer

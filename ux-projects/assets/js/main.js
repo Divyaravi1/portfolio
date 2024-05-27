@@ -270,3 +270,32 @@
   new PureCounter();
 
 })()
+
+
+/*LightBox*/
+
+document.addEventListener('DOMContentLoaded', function () {
+const cards = document.querySelectorAll('.card');
+const lightbox = document.createElement('div');
+lightbox.classList.add('lightbox');
+document.body.appendChild(lightbox);
+
+cards.forEach(card => {
+card.addEventListener('click', () => {
+const imgSrc = card.querySelector('.card-img-top').src;
+const imgAlt = card.querySelector('.card-img-top').alt;
+const lightboxImg = document.createElement('img');
+ lightboxImg.src = imgSrc;
+  lightboxImg.alt = imgAlt;
+  lightbox.innerHTML = '';
+  lightbox.appendChild(lightboxImg);
+  lightbox.style.display = 'flex';
+   });
+ });
+
+ lightbox.addEventListener('click', (e) => {
+  if (e.target !== e.currentTarget) return;
+    lightbox.style.display = 'none';
+    });
+    });
+
