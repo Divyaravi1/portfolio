@@ -8,9 +8,18 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+main{
+  width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
     font-family: "Open Sans", sans-serif;
     color: #444444;
+    margin: 0%;
+    width : 100vw;
+    overflow-x: hidden;
+    
   }
   
   a {
@@ -28,10 +37,64 @@ body {
   h3,
   h4,
   h5,
-  h6 {
+  h6{
     font-family: "Roboto", sans-serif;
+    /*margin-left: 20%;
+    margin-right: 20%;*/
+  }
+
+  .sticky{
+    font-family: "Lucida Console", "Courier New", monospace; 
+    color: #000000;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size:14px;
+  }
+  .sticky:hover {
+    transform: scale(1.05);
+}
+
+  .semibold {
+    font-weight: 600; /* Adjust as needed */
+  }
+
+  .text-with-margins {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+  .text-with-margins h4{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 2.5vh;
+    padding-top: 6px;
+    padding-bottom: 2px;
+    font-weight: medium;
+    color: #8a8a8a;
+  }
+
+  .vertical-center {
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
   
+  @media (max-width: 768px) {
+    .text-with-margins {
+      margin-left: 10%; /* Adjust for smaller screens if needed */
+      margin-right: 10%; /* Adjust for smaller screens if needed */
+    }
+  }
+  
+  .outer-margin {
+    margin-left: 20%;
+    margin-right: 20%; /* Add 10% top/bottom and 20% left/right margin around the container */
+  }
+
+  @media (max-width: 768px) {
+    .outer-margin {
+      margin-left: 8%;
+    margin-right: 8%; /* Adjust margin for smaller screens if needed */
+    }
+  }
   /*--------------------------------------------------------------
   # Preloader
   --------------------------------------------------------------*/
@@ -88,12 +151,12 @@ body {
     position: fixed;
     visibility: hidden;
     opacity: 0;
-    right: 15px;
-    bottom: 15px;
+    right: 30px;
+    bottom: 30px;
     z-index: 9999;
     background: #5b61be;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50px;
     transition: all 0.4s;
   }
@@ -334,13 +397,110 @@ body {
   .navbar-mobile .dropdown > .dropdown-active {
     display: block;
   }
+
+
+
+  /*--------------------------------------------------------------
+  # Hero Image
+  --------------------------------------------------------------*/
+  .img-fluid {
+    border-radius: 22px; /* Optional: For rounded corners */
+    margin-bottom: 15px; /* Optional: To add space between rows */
+  }
+
+  .hero-grid {
+    width: 80%;
+    margin-top: 5%;
+  }
   
+  .hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw; /* Adjust as needed */
+    position: relative;
+  }
+
+  .hero-image-container {
+    position: relative;
+  
+  }
+
+  .hero-image {
+    width: 100%; /* Adjust as needed */
+    height:auto;
+    border-radius: 15px; /* Adjust as needed for curved edges */
+    margin: 5% 20%; /* 10% top/bottom, 20% left/right margins */
+    display: block;
+  }
+
+  .hero-tiny{
+    color:#555555;
+  }
+
+  .hero-tiny:hover {
+    transform: scale(1.05); /* Example of zooming by 5% */
+    transition: transform 0.3s ease-in-out; /* Optional: Add smooth transition */
+  }
+
+  @media (max-width: 768px) {
+    .hero-image {
+      width: 80%; /* Adjust for smaller screens if needed */
+      margin: 10% 10%; /* Adjust for smaller screens if needed */
+    }
+  }
+
+
+  /* sls logo */
+
+  .sun-animation {
+    position: absolute;
+    /*padding-left: 20%;
+    top: 10%; /* Adjust the vertical position of the sun animation */
+    /*left: 100%; /* Adjust the horizontal position of the sun animation */
+    transform: translate(-50%, -50%);
+    animation: x-motion 3s ease-in-out 0s infinite alternate;
+    z-index: 2; /* Ensure the sun animation is above the hero image */
+  }
+  
+  .sun-image {
+    width: 40%; /* Adjust the width of the sun image */
+    height: auto;
+    animation: y-motion 4s ease-in-out 0s infinite alternate;
+  }
+  
+  @keyframes x-motion {
+    0% {
+      left: 20%;
+    }
+    100% {
+      left: calc(80% - 20px); /* Adjust the final position of the sun animation */
+    }
+  }
+  
+  @keyframes y-motion {
+    0%, 100% {
+      transform: translateY(0%);
+    }
+    50% {
+      transform: translateY(-100px); /* Adjust the vertical movement of the sun image */
+    }
+  }
+  
+
+
+
   
   /*--------------------------------------------------------------
   # Sections General
   --------------------------------------------------------------*/
+
   section {
     padding: 60px 30px;
+  }
+
+  .padding{
+    padding: 40px 30px;
   }
   
   .section-bg {
@@ -359,15 +519,24 @@ body {
   .section-title {
     padding-bottom: 30px;
   }
+
+  .section-title-over h3{
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+    color: #3b3b3b;
+
+  }
   .section-title h2 {
-    font-size: 36px;
-    font-weight: bold;
+    font-size: 45px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: regular;
     margin-bottom: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 25px;
     position: relative;
     color: #7dbfe6;
   }
-  .section-title h2::after {
+  /*.section-title h2::after {
     content: "";
     position: absolute;
     display: block;
@@ -376,55 +545,269 @@ body {
     background: #475a91;
     bottom: 0;
     left: 0;
-  }
+  }*/
   .section-title p {
     margin-bottom: 0;
   }
+
+  .frame-bg{
+    padding:0;
+    margin : 0;
+  }
+
+  /* -----------------------------------------------------------
+  # wave section
+  -------------------------------------------------------------*/
+  .wave-norm {
+    position: relative;
+    width: 80%;
+    padding: 20px;
+    background: #F6F7F1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --mask:
+      radial-gradient(2.97vw at 50% 4.2vw, #000 99%, #0000 101%) calc(50% - 4vw) 0/8vw 51% repeat-x,
+      radial-gradient(2.97vw at 50% -2.2vw, #0000 99%, #000 101%) 50% 2vw/8vw calc(51% - 2vw) repeat-x,
+      radial-gradient(2.97vw at 50% calc(100% - 4.2vw), #000 99%, #0000 101%) calc(50% - 4vw) 100%/8vw 51% repeat-x,
+      radial-gradient(2.97vw at 50% calc(100% + 2.2vw), #0000 99%, #000 101%) 50% calc(100% - 2vw)/8vw calc(51% - 2vw) repeat-x;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+  }
+
+  .wave-whbg {
+    position: relative;
+    width: 80%;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --mask:
+      radial-gradient(2.97vw at 50% 4.2vw, #000 99%, #0000 101%) calc(50% - 4vw) 0/8vw 51% repeat-x,
+      radial-gradient(2.97vw at 50% -2.2vw, #0000 99%, #000 101%) 50% 2vw/8vw calc(51% - 2vw) repeat-x,
+      radial-gradient(2.97vw at 50% calc(100% - 4.2vw), #000 99%, #0000 101%) calc(50% - 4vw) 100%/8vw 51% repeat-x,
+      radial-gradient(2.97vw at 50% calc(100% + 2.2vw), #0000 99%, #000 101%) 50% calc(100% - 2vw)/8vw calc(51% - 2vw) repeat-x;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+  }
+
+  .wave {
+    overflow: hidden;
+    position: relative;
+    height: 60px;
+  }
+  .wave:after {
+    content: "";
+    position: absolute;
+    will-change: transform;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: -300vw;
+    background: #ADC9FF;
+    --mask: radial-gradient(75.15px at 50% 101.5px, #000 99%, #0000 101%)
+        calc(50% - 70px) 0/140px 100%,
+      radial-gradient(75.15px at 50% -66.5px, #0000 99%, #000 101%) 50% 35px/140px
+        100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+    animation: wave 30s linear infinite alternate;
+    z-index: 0;
+  }
+  @keyframes wave {
+    100% {
+      transform: translate3d(-300vw, 0, 0px);
+    }
+  }
+
+/* -----------------------------------------------------------
+  # CONCEPT PANELS - BEACH SAFE
+  -------------------------------------------------------------*/
+
+
+  .panel-sls {
+    height: 500px; /* Adjust the height as needed */
+    overflow: hidden; /* Ensures images don't overflow */
+  }
+  .panel-sls img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-text-grid .row {
+    margin-bottom: 20px;
+  }
+  /* Added class to center text vertically */
+  .d-flex-center {
+    display: flex;
+    align-items: center;
+  }
+  
+  .image-text-grid img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s; /* Transition for smooth scaling effect */
+    position: relative; /* Required for pseudo-element positioning */
+  }
+
+  .image-text-grid img:hover {
+    transform: scale(1.05);
+  }
+
+/* -----------------------------------------------------------
+  # Flipcards - TSG
+  -------------------------------------------------------------*/
+  .flip-card {
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .flip-card-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+  .flipped {
+    transform: rotateY(180deg);
+  }
+
+  /*Hover animation*/
+
+  .flip-card:hover .flip-card-front {
+    transform: scale(1.05); /* Example of zooming by 5% */
+  }
+
+
+
+  /*click to full screen*/
+
+  .modal-dialog-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80vw; /* Ensures the modal content does not exceed 60% of the viewport width */
+  }
+  .modal-content {
+    background: transparent;
+    border: none;
+  }
+  .modal-body {
+    padding: 0;
+  }
+  .modal-body img {
+    width: 100%;
+    height: auto;
+  }
+
+/* -----------------------------------------------------------
+  # Design Principles cirlces
+  -------------------------------------------------------------*/
+
+  .circle-container {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    
+  }
+  
+  .circle {
+    position: relative;
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  .circle img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .circle:hover {
+    transform: scale(1.1); /* Example of hover effect */
+  }
+
+
+  .panel {
+    height: 400px; /* Adjust the height as needed */
+    overflow: hidden; /* Ensures images don't overflow */
+  }
+  .panel img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+
 
 
   /* -----------------------------------------------------------
   # Slideshow
   -------------------------------------------------------------*/
 
-  .slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-    overflow: hidden;
-    border: 1px solid #ccc;
-}
+  /*Hover overlay effect*/
 
-/* CSS for images in the slideshow */
-.mySlides {
-    display: none;
-}
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #000000;
+    border-radius:5%;
+  }
+  
+  .container:hover .overlay {
+    opacity:0.75;
+  }
 
-/* CSS for previous and next buttons */
-.prev, .next {
-    cursor: pointer;
+  .container:hover .text {
+    opacity: 1;
+  }
+  
+  .container .text {
+    color: rgba(255, 255, 255, 1); /* Set text color with full opacity */
+    font-size: 150%;
     position: absolute;
     top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    background-color: rgba(0,0,0,0.5);
-}
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0; /* Initially hide the text */
+    transition: opacity 0.5s ease; /* Add transition for opacity */
+  }
 
-/* Positioning for previous button */
-.prev {
-    left: 0;
-}
+  @media (max-width: 768px) {
+    .container .text {
+      font-size: 100%;
+    }
+  }
 
-/* Positioning for next button */
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
+
+/*Figma code */
 
 .figma-container {
   position: relative;
@@ -640,7 +1023,14 @@ body {
   }
 
   .orange-box {
-    background-color: rgba(254, 212, 157, 0.2); /* Blue color with 20% opacity */
+    background-color: rgba(254, 212, 157, 0.5); /* Blue color with 20% opacity */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Optional: Add some bottom margin for spacing */
+  }
+
+  .white-box {
+    background-color: rgba(255, 255, 255, 0.192); /* Blue color with 20% opacity */
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px; /* Optional: Add some bottom margin for spacing */
