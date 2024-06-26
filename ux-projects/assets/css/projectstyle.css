@@ -418,13 +418,8 @@ body {
     justify-content: center;
     align-items: center;
     width: 80vw; /* Adjust as needed */
-    position: relative;
   }
 
-  .hero-image-container {
-    position: relative;
-  
-  }
 
   .hero-image {
     width: 100%; /* Adjust as needed */
