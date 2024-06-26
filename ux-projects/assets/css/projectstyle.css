@@ -458,7 +458,7 @@ body {
     /*padding-left: 20%;
     top: 10%; /* Adjust the vertical position of the sun animation */
     /*left: 100%; /* Adjust the horizontal position of the sun animation */
-    transform: translate(-50%, -50%);
+    transform: translate(-10%, -50%);
     animation: x-motion 3s ease-in-out 0s infinite alternate;
     z-index: 2; /* Ensure the sun animation is above the hero image */
   }
