@@ -698,6 +698,21 @@ body {
 /* -----------------------------------------------------------
   # Flipcards - TSG
   -------------------------------------------------------------*/
+  /* Add styles for the new flip cards line */
+.flip-cards-text {
+  margin-top: 10px; /* Add some space above the new line */
+  font-size: 18px; /* Adjust the font size as needed */
+  display: flex; /* Use flexbox to align text and arrow */
+  align-items: center; /* Center align items vertically */
+}
+
+.flip-cards-text .arrow {
+  margin-left: 10px; /* Add some space between the text and the arrow */
+  font-size: 25px; /* Adjust the arrow size as needed */
+  color: #606060; /* Adjust the arrow color as needed */
+}
+
+
   .flip-card {
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
     width: 100%;
