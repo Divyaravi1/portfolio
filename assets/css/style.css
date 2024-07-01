@@ -16,6 +16,14 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #5a656e;
+  overflow-x: hidden;
+}
+
+@media (max-width: 900px) {
+  .main{
+    overflow-x: hidden;
+    margin: 0;
+  }
 }
 
 a {
@@ -40,6 +48,8 @@ h4, h5, h6{
   padding-top: 8%;
   margin-top: 8%;
 }
+
+
 
 /*--------------------------------------------------------------
 # Animation-intro
@@ -203,6 +213,20 @@ h4, h5, h6{
 @keyframes fade {
   0%, 25%, 100% { opacity: 0; }
   8.33%, 16.66% { opacity: 1; }
+}
+
+
+@media (max-width: 900px) {
+  .animation-container{
+    scale: 0.8;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .animation-wrapper {
+   margin-top: 0%;
+  }
 }
 
 
