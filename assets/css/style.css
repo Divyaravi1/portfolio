@@ -220,12 +220,22 @@ h4, h5, h6{
   .animation-container{
     scale: 0.8;
     z-index: 2;
+    padding-right: 10px;
   }
+
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .animation-wrapper {
-   margin-top: 0%;
+   display: none;
+  }
+
+  .animation-container {
+    display: none;
+  }
+
+  .animation-wrapper img{
+    display: none;
   }
 }
 
