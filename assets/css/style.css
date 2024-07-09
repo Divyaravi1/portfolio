@@ -457,6 +457,7 @@ h4, h5, h6{
   background: rgba(13, 21, 29, 0.6);
   transition: 0.3s;
   z-index: 998;
+  text-align: center;
 }
 .navbar-mobile .mobile-nav-toggle {
   position: absolute;
@@ -468,18 +469,31 @@ h4, h5, h6{
   position: absolute;
   top: 55px;
   right: 15px;
-  bottom: 15px;
+  bottom: 72%;
   left: 15px;
   padding: 10px 0;
   border-radius: 10px;
   background-color: #fff;
   overflow-y: auto;
   transition: 0.3s;
+  text-align: center !important; /* Apply center alignment */
 }
+
+.navbar-mobile a,
+.navbar-mobile a:focus,
+.navbar-mobile p,
+.navbar-mobile h1,
+.navbar-mobile h2,
+.navbar-mobile h3 {
+  text-align: center !important; /* Apply center alignment */
+}
+
+
 .navbar-mobile a, .navbar-mobile a:focus {
   padding: 10px 20px;
   font-size: 15px;
   color: #2c4964;
+  text-align: center;
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
   color: #7dbfe6;
@@ -497,6 +511,7 @@ h4, h5, h6{
   visibility: visible;
   background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  text-align: center;
 }
 .navbar-mobile .dropdown ul li {
   min-width: 200px;

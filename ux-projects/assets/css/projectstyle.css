@@ -342,6 +342,7 @@ body {
     background: rgba(13, 21, 29, 0.6);
     transition: 0.3s;
     z-index: 998;
+    text-align: center;
   }
   .navbar-mobile .mobile-nav-toggle {
     position: absolute;
@@ -353,13 +354,14 @@ body {
     position: absolute;
     top: 55px;
     right: 15px;
-    bottom: 15px;
+    bottom: 72%;
     left: 15px;
     padding: 10px 0;
     border-radius: 10px;
     background-color: #fff;
     overflow-y: auto;
     transition: 0.3s;
+    text-align: center;
   }
   .navbar-mobile a, .navbar-mobile a:focus {
     padding: 10px 20px;
