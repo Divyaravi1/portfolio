@@ -31,6 +31,23 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    
+.intro {
+  font-family: 'Lato', sans-serif; 
+  align-content: center;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+/* Mobile devices */
+@media (max-width: 500px) {
+  .intro {
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+}
+  </style>
 
 </head>
 
@@ -73,13 +90,13 @@
 
 <!-- ======= About Section ======= -->
    
-<section id="about" class="about" style="margin-top:0; padding-top:0; padding-bottom: 2vh;">
-  <div class="row no-gutters">
-      <div class="col-sm-10 col-lg-8 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
-          <div class=" col-sm-6 col-lg-8 content d-flex flex-column justify-content-top">
+<section id="about" class="about" style="margin-top:0; padding-top:0; padding-left: 15%; padding-bottom: 2vh; align-items: center;">
+  <div class="row no-gutters" style="align-content: center;">
+      <div class="col-sm-10 col-lg-10 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+          <div class=" col-sm-6 col-lg-12 content d-flex flex-column justify-content-top">
 
             <!-- Animated Text Section -->
-            <div class="animated-text-container">
+            <div class="animated-text-container" style="padding-bottom: 6vh;">
               <div class="content-a">
                 <div class="content__container">
                   <p class="content__container__text">I am a </p>
@@ -92,13 +109,14 @@
                 </div>
                </div>
             </div>
-              <div class="padding-about">
-              <h3 style="margin-top:0; padding-top:0; font-family: 'Lato', sans-serif; font-weight: 600;"> I'm an interaction designer dedicated to crafting user-centric experiences. </h3>
+              <div class="padding-about" style="padding-bottom: 6vh;">
+              <h3 class="intro" style="margin-top:0; padding-top:0; font-weight: 600;"> I'm an interaction designer dedicated to crafting user-centric experiences. </h3>
               <p>Design is a concept that is generally associated with art and color. However, it is a multidisciplinary field that can be applied in many areas and focuses on creating something that serves a specific function or solves a specific problem.</p>
             </div>
           </div>
       </div><!-- End .content-->
-      <div class="col-sm-2 col-lg-4 d-flex align-items-stretch" style="align-items: center;">
+
+     <!--<div class="col-sm-2 col-lg-4 d-flex align-items-stretch" style="align-items: center;">
         <div class="animation-container">
             <div class="animation-wrapper">
                 <img src="assets/img/book.png" alt="Cartoon 1">
@@ -113,7 +131,9 @@
                 <img src="assets/img/music.png" alt="Cartoon 4">
             </div>
         </div>
-    </div>
+    </div>--> 
+
+
   </div>
 </section><!-- End About Section -->
 
