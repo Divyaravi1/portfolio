@@ -32,6 +32,47 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+.text-with-margins {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+
+@media (max-width: 600px) {
+  .text-with-margins{
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+.mock{
+  margin: 0;
+  padding-top: 5%;
+}
+.mock:hover {
+  transform: scale(1.3); /* Example of zooming by 5% */
+  transition: transform 0.3s ease-in-out; /* Optional: Add smooth transition */
+}
+
+/*--------------------------------------------------------------
+# Hero Image
+--------------------------------------------------------------*/
+
+.hero-image {
+  width: 100%; /* Adjust as needed */
+  height:auto;
+  border-radius: 15px; /* Adjust as needed for curved edges */
+  margin: 5% 20%; /* 10% top/bottom, 20% left/right margins */
+  display: block;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw; /* Adjust as needed */
+}
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
