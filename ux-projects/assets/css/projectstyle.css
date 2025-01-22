@@ -436,10 +436,10 @@ body {
     color:#555555;
   }
 
-  .hero-tiny:hover {
-    transform: scale(1.05); /* Example of zooming by 5% */
-    transition: transform 0.3s ease-in-out; /* Optional: Add smooth transition */
-  }
+  /*.hero-tiny:hover {
+    transform: scale(1.05); /* Example of zooming by 5% 
+    transition: transform 0.3s ease-in-out; /* Optional: Add smooth transition 
+  } */
 
   @media (max-width: 768px) {
     .hero-image {
