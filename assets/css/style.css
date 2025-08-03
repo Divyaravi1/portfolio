@@ -264,9 +264,9 @@ h4, h5, h6{
 
 .arc-bottom {
   z-index: 0;
-  --mask: radial-gradient(3vw at top,#0000 97%,#000) 50% / 5.55vw 100%;
+  --mask: radial-gradient(3vw at top, #0000 97%, #000) 50% / 5.55vw 100%;
   -webkit-mask: var(--mask);
-          mask: var(--mask);
+          mask: var(--mask);                     
 }
 
 
@@ -996,6 +996,7 @@ padding-top: 0;
   position: relative;
   overflow: hidden;
   z-index: 1;
+  border-radius: 12px;
 }
 .portfolio .portfolio-wrap::before {
   content: "";
@@ -1008,6 +1009,7 @@ padding-top: 0;
   transition: all ease-in-out 0.3s;
   z-index: 2;
   opacity: 0;
+  border-radius: 12px;
 }
 .portfolio .portfolio-wrap .portfolio-info {
   opacity: 0;
@@ -1021,11 +1023,11 @@ padding-top: 0;
 }
 .portfolio .portfolio-wrap .portfolio-info h4 {
   font-size: 20px;
-  color: #fff;
+  color: rgb(40, 72, 121);
   font-weight: 600;
 }
 .portfolio .portfolio-wrap .portfolio-info p {
-  color: #ffffff;
+  color: rgb(40, 72, 121);
   font-size: 14px;
   /*text-transform: uppercase;*/
 }

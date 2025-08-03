@@ -41,6 +41,14 @@
   
 }
 
+.custom-aboutbg{
+  margin-top:0;
+  padding-top: 4vh; 
+  padding-left: 15%; 
+  padding-bottom: 10vh; 
+  align-items: center; 
+}
+
 /* Mobile devices */
 @media (max-width: 500px) {
   .intro {
@@ -81,7 +89,6 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Projects</a></li>
-          <li><a class="nav-link scrollto" href="Architecture.html">Architecture</a></li>
           <li><a class="nav-link scrollto" href="AboutMe.html">About</a></li>
           <!--<li><a class="nav-link scrollto" href="#resume">Resume</a></li>
           <li><a class="nav-link scrollto" href="#thesis">Thesis</a></li>
@@ -100,50 +107,16 @@
 
 <!-- ======= About Section ======= -->
    
-<section id="about" class="about" style="margin-top:0; padding-top:0; padding-left: 15%; padding-bottom: 2vh; align-items: center;">
+<section id="about" class="about custom-aboutbg" >
   <div class="row no-gutters" style="align-content: center;">
       <div class="col-sm-10 col-lg-10 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
           <div class=" col-sm-6 col-lg-12 content d-flex flex-column justify-content-top">
-
-            <!-- Animated Text Section 
-            <div class="animated-text-container" style="padding-bottom: 6vh;">
-              <div class="content-a">
-                <div class="content__container">
-                  <p class="content__container__text">I am a </p>
-                   <ul class="content__container__list">
-                      <li class="content__container__list__item" style="color: #70a9ff;">Product Designer.</li>
-                      <li class="content__container__list__item" style="color: #70a9ff;">Graphic Designer.</li>
-                      <li class="content__container__list__item" style="color: #70a9ff;">UI Designer.</li>
-                      <li class="content__container__list__item" style="color: #70a9ff;">Passionate Reader.</li>
-                    </ul>
-                </div>
-               </div>
-            </div>-->
               <div class="padding-about" style="padding-bottom: 6vh; padding-top: 6vh;">
               <h3 class="intro" style="margin-top:0; padding-top:0; font-weight: 600; font-size: 6vh;"> I'm an interaction designer dedicated to crafting user-centric experiences. </h3>
               <p>Design is a concept that is generally associated with art and color. However, it is a multidisciplinary field that can be applied in many areas and focuses on creating something that serves a specific function or solves a specific problem.</p>
             </div>
           </div>
       </div><!-- End .content-->
-
-     <!--<div class="col-sm-2 col-lg-4 d-flex align-items-stretch" style="align-items: center;">
-        <div class="animation-container">
-            <div class="animation-wrapper">
-                <img src="assets/img/book.png" alt="Cartoon 1">
-            </div>
-            <div class="animation-wrapper">
-                <img src="assets/img/draw.png" alt="Cartoon 2">
-            </div>
-            <div class="animation-wrapper">
-                <img src="assets/img/post it.png" alt="Cartoon 3">
-            </div>
-            <div class="animation-wrapper">
-                <img src="assets/img/music.png" alt="Cartoon 4">
-            </div>
-        </div>
-    </div>--> 
-
-
   </div>
 </section><!-- End About Section -->
 
@@ -169,6 +142,20 @@
               <div class="portfolio-info">
                 <h4>Beach Camp</h4>
                 <p>An app that is designed to reduce danger on unpatrolled beaches.</p>
+              </div></a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-arch">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/trust.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="./design_programming.html" title="More Details">
+              <div class="portfolio-info">
+                <h4>Exploring Trust and Transparency</h4>
+                <p>In Retrieval-Augmented Generation</p>
               </div></a>
               </div>
             </div>
@@ -201,18 +188,6 @@
           </div>
 
         
-          <div class="col-lg-4 col-md-6 portfolio-item filter-arch">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/fish.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="./design_programming.html" title="More Details">
-              <div class="portfolio-info">
-                <h4>Fishy Behavior</h4>
-                <p>A designing programming emmergence problem.</p>
-              </div></a>
-              </div>
-            </div>
-          </div>
 
          
           <div class="col-lg-4 col-md-6 portfolio-item filter-arch">
@@ -249,7 +224,7 @@
 
 
 
-    <section id="contact" class="contact section-bg">
+    <section id="contact" class="contact section-bg arc-bottom" style="padding-top: 12vh;">
       <div class="container">
 
         <div class="section-title">
