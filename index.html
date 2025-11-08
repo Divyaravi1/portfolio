@@ -3,19 +3,15 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i&subset=cyrillic" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Poppins:300,400,500,600,700|Playfair+Display:400,500,600,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -24,117 +20,175 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="data-aos.css" rel="stylesheet">
-  <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
   <style>
-    
-.intro {
-  font-family: 'Lato', sans-serif; 
-  align-content: center;
-  padding-left: 10%;
-  padding-right: 10%;
-  
-}
+    /* ===================== HERO SECTION STYLES ====================== */
+    .hero-section {
+      position: relative;
+      min-height: 95vh;
+      padding: 10rem 2rem 6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: #f8fafc;
+    }
 
-.custom-aboutbg{
-  margin-top:0;
-  padding-top: 4vh; 
-  padding-left: 15%; 
-  padding-bottom: 10vh; 
-  align-items: center; 
-}
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+    }
 
-/* Mobile devices */
-@media (max-width: 500px) {
-  .intro {
-    padding-left: 0%;
-    padding-right: 0%;
-  }
-}
+    .hero-section h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.3;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 1rem;
+      opacity: 1;
+    }
+
+    .hero-section p {
+      color: #6b7280;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 650px;
+      margin: 0 auto 1.5rem;
+      opacity: 1;
+    }
+
+    /* POPUPS */
+    .popups-container {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .popup {
+      position: absolute;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: transform 0.35s ease, z-index 0.2s ease, opacity 0.25s;
+      pointer-events: auto;
+      will-change: transform;
+    }
+
+    .browser-window {
+      width: 220px;
+      background: rgba(200, 200, 200, 0.18);
+      border-radius: 1rem;
+      border: 2px solid rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09);
+      backdrop-filter: blur(8px);
+    }
+
+    .browser-chrome {
+      display: flex;
+      gap: 0.4rem;
+      padding: 0.4rem;
+      background: rgba(255, 255, 255, 0.75);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #f87171; }
+    .dot-yellow { background: #facc15; }
+    .dot-green { background: #4ade80; }
+
+    .browser-content {
+      padding: 0.8rem;
+      height: 100px;
+    }
+
+    .content-bar,
+    .content-bar-thin,
+    .content-grid-item {
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .content-bar {
+      height: 10px;
+      margin-bottom: 6px;
+      background: rgba(59, 130, 246, 0.26);
+    }
+
+    .content-bar-thin {
+      height: 6px;
+      margin-bottom: 4px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      margin-top: 5px;
+    }
+
+    .content-grid-item {
+      aspect-ratio: 1;
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .popup.expanded {
+      transform: scale(2.6) !important;
+      z-index: 60 !important;
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .browser-window { width: 150px; }
+      .popup.expanded { transform: scale(1.9) !important; }
+    }
   </style>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVNYZ6Y0L4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MVNYZ6Y0L4');
-</script>
-
 </head>
 
 <body>
 
-  <!--  Hero Section  
-  <section id="hero" class="d-flex flex-column align-items-center justify-content-top p-4">
-    <h1>Hi, I'm Divya Ravi!</h1>
-    <h2><b><i>I am an Architecture student</i></b></h2>
-    <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
-  </section> End Hero -->
-
-  <!-- Header -->
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <div class="logo">
-        <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-      </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Projects</a></li>
-          <li><a class="nav-link scrollto" href="AboutMe.html">About</a></li>
-          <!--<li><a class="nav-link scrollto" href="#resume">Resume</a></li>
-          <li><a class="nav-link scrollto" href="#thesis">Thesis</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Projects</a></li>-->
-
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero">
+    <div class="popups-container" id="popups-container" style="padding-top: 4vh;"></div>
+    <div class="hero-content">
+      <h1>I’m a Product + UX Designer dedicated to crafting user-centric experiences.</h1>
+      <p>Design is a concept that is generally associated with art and color. However, it is a multidisciplinary field that can be applied in many areas and focuses on creating something that serves a specific function or solves a specific problem.</p>
+      <p style="margin-top:1rem;">
+  <a href="#portfolio" class="btn btn-outline-primary" 
+     style="border-radius:999px; padding:0.5rem 1rem; text-decoration:none;">
+     View Works
+  </a>
+</p>
     </div>
-    
-  </header><!-- End Header -->
+  </section>
 
   <main id="main">
 
-
-<!-- ======= About Section ======= -->
-   
-<section id="about" class="about custom-aboutbg" >
-  <div class="row no-gutters" style="align-content: center;">
-      <div class="col-sm-10 col-lg-10 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
-          <div class=" col-sm-6 col-lg-12 content d-flex flex-column justify-content-top">
-              <div class="padding-about" style="padding-bottom: 6vh; padding-top: 6vh;">
-              <h3 class="intro" style="margin-top:0; padding-top:0; font-weight: 600; font-size: 6vh;"> I'm an interaction designer dedicated to crafting user-centric experiences. </h3>
-              <p>Design is a concept that is generally associated with art and color. However, it is a multidisciplinary field that can be applied in many areas and focuses on creating something that serves a specific function or solves a specific problem.</p>
-            </div>
-          </div>
-      </div><!-- End .content-->
-  </div>
-</section><!-- End About Section -->
-
-
-    
-    <!-- =======UX Projects Section ======= -->
-    <section id="portfolio" class="portfolio section-bg arc-bottom" style="padding-top: 7%;">
+    <!-- ======= UX Projects Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
       <div class="container">
 
-        <div class="section-title">
-          <h2 style="font-family: 'Lato', sans-serif; font-weight: 600;" >UX Projects</h2>
+        <div style="text-align: center; padding-bottom: 2vh;">
+          <h3 class="intro" style="font-size: 6vh;">Featured Works</h3>
           <p>This portfolio showcases a collection of UX projects I developed during my Master’s program and the Google UX Design course in 2022. These projects were created using Figma and enhanced with various programming languages, reflecting my skills and design journey.</p>
         </div>
 
         <div class="row portfolio-container">
 
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-sus">
+         <div class="col-lg-4 col-md-6 portfolio-item filter-sus">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/beach.png" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -216,63 +270,299 @@
             </div>
           </div>
 
-        </div>
 
+        </div>
       </div>
-</section><!-- End UX projects Section -->
+    </section>
 
-
-
-
-    <section id="contact" class="contact section-bg arc-bottom" style="padding-top: 12vh;">
-      <div class="container">
-
-        <div class="section-title">
-          <h2 style="font-family: 'Lato', sans-serif; font-weight: 600;">Let’s connect!</h2>
-          <p>Get in touch via <a href="mailto:divya.ravirv@gmail.com">email</a> or <a href="https://www.linkedin.com/in/divya-ravi-503669247/">LinkedIn</a>.</p>
-        </div>
-        </div>
-        <!--<div class="social-links">
-          <a href="mailto:hello@aleksitappura.com"><i class="bi bi-envelope"></i>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-          <p><small>&copy; <script>document.write(new Date().getFullYear())</script> Divya Ravi</small></p>
-        </div>
-      </div>-->
-    
-      
-        </div>
-
+   <!-- ======= About Section ======= -->
+<section id="about" class="about-me py-5" style="background:#f8fafc;">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- About Image -->
+      <div class="col-lg-5 col-md-12 text-center mb-4 mb-lg-0">
+        <img src="./assets/img/me.jpg" alt="Divya Ravi" 
+             class="img-fluid about-me-photo"
+             style="width: 70%; border-radius: 20%; object-fit: cover; box-shadow: 0 6px 15px rgba(0,0,0,0.1);">
       </div>
-    </section><!-- End Contact Section -->
 
-  </main><!-- End #main -->
+      <!-- About Content -->
+      <div class="col-lg-7 col-md-12">
+        <div class="content">
+          <h3 style="font-weight:700; margin-bottom:0.5rem;">Hi! I’m Divya Ravi...</h3>
+          <h4 style="margin-top:0.25rem; margin-bottom:0.75rem; line-height:1.5;">
+            <strong>I’m a Product and Experience Designer</strong> with a Master of Interaction Design and Electronic Arts from the University of Sydney.
+          </h4>
 
-  <!-- ======= Footer ======= -->
+          <p>I’m also an accredited architect with a Bachelor’s degree in Architecture from India.</p>
+
+          <p>
+            I’ve always been interested in using the design skills I gained through architecture to explore the intersection of technology and human-centered design.
+            To deepen my UX knowledge, I completed seven Google courses as part of the
+            <a href="./assets/coursera-google-certificate.pdf" target="_blank"><strong>Google UX Design Professional Certificate</strong></a> on Coursera.
+          </p>
+
+          <p>This website is my personal exploration of HTML, Bootstrap, and my fascination with creating intuitive and aesthetically pleasing user experiences. My exposure to IT system design and development includes programming in Java, JavaScript, and understanding Object-Oriented Design principles.</p>
+
+          <p>In my work as an architect, I’ve contributed to sustainability projects, interior design, graphic design, and parametric architecture—each reinforcing my passion for creative problem-solving and design systems thinking.</p>
+
+          <p style="margin-top:1rem;">
+            <a href="assets/DivyaRavi_CV2025.pdf" class="btn btn-outline-primary" style="border-radius:999px; padding:0.5rem 1rem; text-decoration:none;" target="_blank" rel="noopener noreferrer"> View Resume
+              
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Section -->
+
+<!-- ======= Skills Section ======= -->
+<section id="skills" class="skills section-bg py-5" style="background:#ffffff;">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h3 class="intro" style="font-size: 6vh;">Skills</h3>
+      <p style="max-width:700px; margin:auto;">Throughout my educational journey, I have honed proficiency in a variety of essential software tools and programming languages ensuring adeptness in design, user research, and user experience design.</p>
+    </div>
+
+    <div class="row skills-content mt-4">
+      <!-- Left Column -->
+      <div class="col-lg-6">
+        <div class="progress mb-3">
+          <span class="skill">Photoshop <i class="val">90%</i></span>
+          <div class="progress-bar-wrap bg-light rounded" style="height:10px;">
+            <div class="progress-bar bg-primary" role="progressbar" data-target="90"></div>
+          </div>
+        </div>
+
+        <div class="progress mb-3">
+          <span class="skill">InDesign <i class="val">85%</i></span>
+          <div class="progress-bar-wrap bg-light rounded" style="height:10px;">
+            <div class="progress-bar bg-primary" role="progressbar" data-target="85"></div>
+          </div>
+        </div>
+
+        <div class="progress mb-3">
+          <span class="skill">CSS <i class="val">75%</i></span>
+          <div class="progress-bar-wrap bg-light rounded" style="height:10px;">
+            <div class="progress-bar bg-primary" role="progressbar" data-target="75"></div>
+          </div>
+        </div>
+
+        <div class="progress mb-3">
+          <span class="skill">Figma <i class="val">90%</i></span>
+          <div class="progress-bar-wrap bg-light rounded" style="height:10px;">
+            <div class="progress-bar bg-primary" role="progressbar" data-target="90"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-lg-6">
+        <div class="progress mb-3">
+          <span class="skill">HTML <i class="val">90%</i></span>
+          <div class="progress-bar-wrap bg-light rounded" style="height:10px;">
+            <div class="progress-bar bg-primary" role="progressbar" data-target="90"></div>
+          </div>
+        </div>
+
+        <div class="progress mb-3">
+          <span class="skill">Java <i class="val">60%</i></span>
+          <div class="progress-bar-wrap bg-light rounded" style="height:10px;">
+            <div class="progress-bar bg-primary" role="progressbar" data-target="60"></div>
+          </div>
+        </div>
+
+        <div class="progress mb-3">
+          <span class="skill">JavaScript <i class="val">65%</i></span>
+          <div class="progress-bar-wrap bg-light rounded" style="height:10px;">
+            <div class="progress-bar bg-primary" role="progressbar" data-target="65"></div>
+          </div>
+        </div>
+
+        <div class="progress mb-3">
+          <span class="skill">Balsamiq <i class="val">65%</i></span>
+          <div class="progress-bar-wrap bg-light rounded" style="height:10px;">
+            <div class="progress-bar bg-primary" role="progressbar" data-target="65"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Skills Section -->
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact section-bg arc-bottom">
+      <div class="container" style="text-align:center; padding-top: 2vh;">
+        <h3 class="intro" style="font-size:6vh;">Let’s Connect!</h3>
+        <p>Get in touch via <a href="mailto:divya.ravirv@gmail.com">email</a> or connect on <a href="https://www.linkedin.com/in/divya-ravi-503669247/">LinkedIn</a>.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
   <footer id="footer">
     <div class="container">
-      
       <div class="credits">
-        <p>&copy; <script>document.write(new Date().getFullYear())</script><strong> Divya Ravi</p></strong>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> <strong>Divya Ravi</strong></p>
         <a style="font-size: smaller;">Designed by Divya Ravi</a>
       </div>
     </div>
-  </footer><!-- End  Footer -->
+  </footer>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- HERO POPUP JS -->
+  <script>
+(function () {
+  const allPopups = [
+    // --- Top placements ---
+    { x: "5%", y: "12%", scale: 1.3 },
+    { x: "18%", y: "8%", scale: 1.2 },
+    { x: "32%", y: "18%", scale: 1.3 },
+    { x: "45%", y: "8%", scale: 1.25 },
+    { x: "58%", y: "16%", scale: 1.3 },
+    { x: "72%", y: "10%", scale: 1.2 },
+    { x: "85%", y: "22%", scale: 1.25 },
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
+    // --- Lower / mid placements ---
+    { x: "12%", y: "50%", scale: 1.3 },
+    { x: "35%", y: "62%", scale: 1.25 },
+    { x: "60%", y: "58%", scale: 1.3 },
+    { x: "80%", y: "52%", scale: 1.25 },
+  ];
+
+  const colorSchemes = [
+    "rgba(59,130,246,0.22)",
+    "rgba(34,197,94,0.22)",
+    "rgba(234,179,8,0.22)"
+  ];
+
+  const container = document.getElementById("popups-container");
+  let nextColorIndex = 0;
+  let intervals = [];
+
+  function clearPopups() {
+    intervals.forEach(id => clearInterval(id));
+    intervals = [];
+    container.innerHTML = "";
+  }
+
+  // ✅ Balanced set for mobile — both top and bottom placements
+  function getPopupSet() {
+    if (window.innerWidth <= 768) {
+      return [
+        { x: "10%", y: "15%", scale: 1.2 },
+        { x: "45%", y: "10%", scale: 1.3 },
+        { x: "80%", y: "20%", scale: 1.25 },
+        { x: "20%", y: "65%", scale: 1.25 },
+        { x: "50%", y: "70%", scale: 1.3 },
+        { x: "80%", y: "60%", scale: 1.2 },
+      ];
+    } else {
+      return allPopups;
+    }
+  }
+
+  function renderPopups() {
+    clearPopups();
+    const websitePopups = getPopupSet();
+
+    websitePopups.forEach(pos => {
+      const popup = document.createElement("div");
+      popup.className = "popup";
+      popup.style.left = pos.x;
+      popup.style.top = pos.y;
+      popup.dataset.scale = pos.scale;
+      popup.innerHTML = `
+        <div class="browser-window">
+          <div class="browser-chrome">
+            <div class="browser-dot dot-red"></div>
+            <div class="browser-dot dot-yellow"></div>
+            <div class="browser-dot dot-green"></div>
+          </div>
+          <div class="browser-content">
+            <div class="content-bar"></div>
+            <div class="content-bar-thin"></div>
+            <div class="content-grid">
+              <div class="content-grid-item"></div>
+              <div class="content-grid-item"></div>
+              <div class="content-grid-item"></div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Floating animation
+      let offset = Math.random() * Math.PI * 2;
+      const id = setInterval(() => {
+        if (!popup.classList.contains("expanded")) {
+          offset += 0.02;
+          popup.style.transform = `translateY(${Math.sin(offset) * 8}px) scale(${pos.scale})`;
+        }
+      }, 60);
+      intervals.push(id);
+
+      // Expand on click
+      popup.addEventListener("click", e => {
+        e.stopPropagation();
+        const alreadyExpanded = popup.classList.contains("expanded");
+        document.querySelectorAll(".popup").forEach(p => p.classList.remove("expanded"));
+        if (!alreadyExpanded) {
+          popup.classList.add("expanded");
+          const color = colorSchemes[nextColorIndex % colorSchemes.length];
+          popup.querySelector(".browser-window").style.background = color;
+          nextColorIndex++;
+        }
+      });
+
+      document.addEventListener("click", ev => {
+        if (!popup.contains(ev.target)) popup.classList.remove("expanded");
+      });
+
+      container.appendChild(popup);
+    });
+  }
+
+  // Initial render
+  renderPopups();
+
+  // Re-render on resize (debounced)
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(renderPopups, 200);
+  });
+
+  // Progress bar animation (unchanged)
+  document.addEventListener("DOMContentLoaded", () => {
+    const bars = document.querySelectorAll(".progress-bar");
+
+    const animateBars = () => {
+      bars.forEach(bar => {
+        const target = bar.getAttribute("data-target");
+        const rect = bar.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight - 50;
+        if (inView && !bar.classList.contains("animated")) {
+          bar.classList.add("animated");
+          bar.style.width = target + "%";
+          bar.style.transition = "width 1.5s ease-in-out";
+        }
+      });
+    };
+
+    window.addEventListener("scroll", animateBars);
+    animateBars();
+  });
+})();
+</script>
+
+  <!-- Vendor JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
-
 </html>
