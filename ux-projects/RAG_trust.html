@@ -14,6 +14,7 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -30,6 +31,235 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/projectstyle.css" rel="stylesheet">
+
+  <style>
+    /* ── Global line-height ── */
+    .text-with-margins p,
+    .text-with-margins li { line-height: 1.8; }
+
+    /* ── Research question callout ── */
+    .rq-callout {
+      background: #f0f6ff;
+      padding: 1.2rem 1.6rem;
+      border-radius: 8px;
+      margin: 1rem 0 2rem;
+    }
+    .rq-callout p {
+      margin: 0;
+      font-size: 1rem;
+      color: #1a3352;
+      font-weight: 600;
+      font-style: normal !important;
+    }
+
+    /* ── Feature cards (System Features Evaluated) ── */
+    .feature-card {
+      background: #f0f6ff;
+      border: 1px solid #b8d4f0;
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+    .feature-card h4 {
+      color: #1a3d6b !important;
+      font-weight: 600 !important;
+      font-size: 0.95rem !important;
+      margin-bottom: 0.5rem;
+    }
+    .feature-card ul { margin-bottom: 0; padding-left: 1.2rem; }
+    .feature-card li { font-size: 0.92rem; color: #2c3e6b; padding: 2px 0; }
+
+    /* ── Research Findings section wrapper ── */
+    .findings-section { background: #f5f8ff; }
+
+    /* ── Finding cards ── */
+    .finding-card {
+      border-radius: 10px;
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+    .finding-card.fc-trust      { background: #deeaf9; border-left: 5px solid #1a5fad; }
+    .finding-card.fc-understand { background: #e8f1fb; border-left: 5px solid #2e6fdb; }
+    .finding-card.fc-control    { background: #eef4ff; border-left: 5px solid #5b8ed6; }
+
+    .finding-label {
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #3a5f8a;
+      opacity: 0.7;
+      margin-bottom: 0.25rem;
+    }
+    .finding-card h4 {
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+      color: #1a3352 !important;
+      margin-bottom: 0.7rem;
+    }
+    .stat-pill {
+      display: inline-block;
+      background: #fff;
+      border-radius: 20px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      color: #1a5fad;
+    }
+    .finding-card ul  { padding-left: 1.1rem; margin-bottom: 0; }
+    .finding-card li  { font-size: 0.92rem; color: #2c3e6b; padding: 2px 0; }
+
+    /* ── Theme grid (User Control) ── */
+    .theme-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      margin-top: 0.8rem;
+    }
+    @media (max-width: 600px) { .theme-grid { grid-template-columns: 1fr; } }
+    .theme-card {
+      background: #fff;
+      border: 1px solid #c2d8f0;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+    }
+    .theme-count {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #1a5fad;
+      line-height: 1;
+    }
+    .theme-label {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #1a3352;
+      margin: 0.2rem 0 0.35rem;
+    }
+    .theme-card p { font-size: 0.83rem; color: #4a6080; margin: 0; }
+
+    /* ── Design implication dark box ── */
+    .implication-box {
+      background: #1a3352;
+      border-radius: 10px;
+      padding: 1.8rem 2.2rem;
+      margin: 2rem 0 1rem;
+    }
+    .implication-box p {
+      color: #c8dcf5;
+      margin: 0;
+      font-size: 0.97rem;
+      line-height: 1.8;
+    }
+    .implication-box strong { color: #fff; }
+
+    /* ── Section divider spacing ── */
+    .findings-section .text-with-margins > div { margin-bottom: 1rem; }
+
+
+
+
+    .project-hero {
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--hero-bg);
+    }
+    .project-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 50%, var(--hero-glow-a) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 80% at 10% 80%, var(--hero-glow-b) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .project-hero .badge-type {
+      display: inline-block;
+      background: var(--hero-accent);
+      color: var(--hero-bg);
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.8rem;
+    }
+    .project-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      color: var(--hero-accent);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.15;
+      margin-bottom: 1.4rem;
+      font-weight: 400;
+    }
+    .project-hero h1 em {
+      font-style: italic;
+      color: var(--hero-accent-mid);
+    }
+    .project-hero .hero-sub {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--hero-sub-text);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 680px;
+      margin-bottom: 2rem;
+    }
+    .project-hero .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+    }
+    .project-hero .meta-chip {
+      background: var(--hero-chip-bg);
+      border: 1px solid var(--hero-chip-border);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      font-size: 0.82rem;
+      color: var(--hero-sub-text);
+      font-family: 'Syne', sans-serif;
+    }
+    .project-hero .meta-chip strong {
+      color: var(--hero-accent);
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.1rem;
+    }
+    @media (max-width: 768px) {
+      .project-hero { padding: 3.5rem 0 3rem; }
+      .project-hero h1 { font-size: 1.8rem; }
+    }
+
+
+
+
+    
+    /* =============================================================
+       ③ RAG TRUST
+       Palette: deep midnight navy → electric blue accents
+    ============================================================= */
+    .rag-hero {
+      --hero-bg:           #0e1c35;
+      --hero-accent:       #a8c8ff;
+      --hero-accent-mid:   #6aa0f5;
+      --hero-sub-text:     rgba(168, 200, 255, 0.70);
+      --hero-glow-a:       rgba(106, 160, 245, 0.13);
+      --hero-glow-b:       rgba(46, 79, 115, 0.10);
+      --hero-chip-bg:      rgba(168, 200, 255, 0.08);
+      --hero-chip-border:  rgba(168, 200, 255, 0.2);
+      --hero-home-btn:     rgba(14, 28, 53, 0.85);
+      --hero-home-btn-hover: rgba(14, 28, 53, 0.98);
+    }
+
+
+  </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVNYZ6Y0L4"></script>
 <script>
@@ -76,8 +306,41 @@
   </header><!-- End Header -->
   
     <!-- Hero Image -->
+<div class="project-hero rag-hero" style="padding-top: 6vh;">
+  <div class="container">
+    <div class="text-with-margins">
 
+      <span class="badge-type">UX Research + Design &nbsp;·&nbsp; Published CHI EA '25</span>
+
+      <h1>Exploring Trust &amp;<br>Transparency in AI<br><em>When Showing Your<br>Work Actually Matters</em></h1>
+
+      <p class="hero-sub">A 50-person user study on RAG-based AI tools for financial professionals: producing statistically significant evidence that visual transparency outperforms confidence scores for both trust and comprehension.</p>
+
+      <div class="meta-row">
+        <div class="meta-chip">
+          <strong>Published</strong>
+          CHI EA '25 · Yokohama
+        </div>
+        <div class="meta-chip">
+          <strong>Participants</strong>
+          50 Financial Professionals
+        </div>
+        <div class="meta-chip">
+          <strong>Domain</strong>
+          AI · Finance · Trust
+        </div>
+        <div class="meta-chip">
+          <strong>Key Result</strong>
+          p = 0.0036 (highlighting &gt; scores)
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- END RAG TRUST HERO -->
   
+<!-- OLD RAG HERO
     <div class="container-fluid hero-container">
       <img src="assets/img/Hero.png" class="img-fluid border hero-image" alt="Example image" loading="lazy">
     </div>
@@ -93,23 +356,21 @@
 
         <div class="section-title">
           <div class="text-with-margins">
-            <div class = "section-title-over" style="padding-bottom: 0;">
-              <h3>RESEARCH PUBLICATION</h3>
+           <!-- <div class = "section-title-over" style="padding-bottom: 0;">
+              <h3>UX RESEARCH + DESIGN</h3>
             </div>
-          <h2 style="color: #2e4f73;">Exploring Trust and Transparency in Retrieval-Augmented Generation for Domain Experts</h2>
-          <h4>Published at CHI EA '25 (Extended Abstracts of the CHI Conference on Human Factors in Computing Systems)
-          </h4>
-          <p>Investigating how design features in RAG systems can enhance trust and transparency for financial domain experts through user-centered design principles and empirical evaluation.
-          
+          <h2 style="color: #2e4f73;">Exploring Trust and Transparency in AI (RAG) Systems</h2>
+          <h4>Published at CHI EA ’25 &mdash; ACM CHI Conference on Human Factors in Computing Systems, Yokohama, Japan</h4>-->
+          <p>I designed and evaluated interface features for a RAG-based AI tool used by financial professionals by running a 50-person user study that produced statistically significant evidence about what actually builds trust in AI systems.
               </p>
               <br>
 
               <h3 style="color: #757575;">My Role  </h3>
             <p>
               <ul>
-                <li>User Experience Research</li>
-                <li>User testing</li>
-                <li>Interface Prototyping</li>
+                <li>UX Research (mixed methods : quantitative trust measurement + qualitative analysis)</li>
+                <li>Interface Design (confidence tags, source highlighting, branching UI, feedback mechanisms)</li>
+                <li>User Study Design + Testing (50 financial professionals)</li>
                 </ul>
             </p>
 
@@ -128,14 +389,13 @@
   <div class="container" style="padding: 30px; padding-top: 40px;" data-aos="fade-up">
     <div class="text-with-margins">
     <h3>Research Context </h3>
-    <p> TThis study was conducted as part of my academic research, focusing on the intersection of AI systems and human-computer interaction. 
-      The work addresses critical challenges in making AI systems trustworthy for domain experts who possess deep subject knowledge but limited technical familiarity with AI.
+    <p>This study sits at the intersection of AI systems and human-computer interaction, specifically, how to make AI tools trustworthy for domain experts who have deep subject knowledge but limited technical familiarity with how AI works.
     </p>
   </div>
   <div class="text-with-margins" style="padding-top: 6vh;">
     <h3>The Problem</h3>
-    <h4 style="color: #0e3764;">How might we design RAG systems that build appropriate trust and transparency for domain experts in high-stakes decision-making contexts?</h4>
-    <p>Current RAG systems often lack the transparency features needed for domain experts to understand, verify, and trust AI-generated responses, particularly in critical domains like finance where errors can have severe consequences.</p>
+    <h4 style="color: #0e3764;">How might we design RAG systems that build appropriate trust and transparency for domain experts in high-stakes decision-making?</h4>
+    <p>Financial professionals are increasingly expected to use AI tools, but current RAG systems don’t give them enough visibility into how responses are generated to verify accuracy or meet regulatory standards.</p>
     </div>
 
   </div>  
@@ -152,15 +412,7 @@
       <div class="container" style="padding-bottom: 30px; padding-top: 60px;" data-aos="fade-up">
         <div class="text-with-margins">
         <h3 style="color: #000000; font-weight: 600;">Who is this for?</h3>
-        <p> We focused on financial professionals as our primary user group - domain experts who:</p>
-        <p>
-          <ul>
-            <li>Have deep financial expertise but limited AI technical knowledge</li>
-            <li>Make high-stakes decisions based on information analysis</li>
-            <li>Need to verify and trace the sources of AI-generated insights</li>
-            <li>Require control over their analytical workflows</li>
-            </ul>
-        </p>
+        <p>Financial professionals: domain experts who make high-stakes decisions, need to trace AI-generated insights back to source documents, and must satisfy regulatory compliance requirements, but have limited technical familiarity with AI.</p>
       </div>
     
       </div>  
@@ -183,21 +435,21 @@
       <div style=" padding: 0% 10% 5% 10%;">
         <h4 style="color: #606060; font-weight: 600; font-size: 100%;">#1 TRUST CALIBRATION</h4>
         <p style="font-size: 90%; color: #000000;">
-          Domain experts need appropriate trust levels in AI systems - neither over-reliance nor under-utilization. Our research found that transparency features significantly impact trust formation.
+          Experts can’t afford to over-rely on AI, but blanket skepticism means they won’t use it at all. Transparency features are the bridge.
         </p>
       </div>
 
       <div style=" padding: 0% 10% 5% 10%;">
         <h4 style="color: #606060; font-weight: 600; font-size: 100%;">#2 TRANSPARENCY & VERIFICATION</h4>
         <p style="font-size: 90%; color: #000000;">
-          Financial professionals require the ability to trace AI responses back to source documents to verify accuracy and understand reasoning, essential for regulatory compliance and decision confidence.
+          Regulatory compliance requires being able to trace every AI-generated insight back to its source. Confidence scores alone don’t provide that.
         </p>
       </div>
 
       <div style=" padding: 0% 10% 5% 10%;">
         <h4 style="color: #606060; font-weight: 600; font-size: 100%;">#3 USER AGENCY & CONTROL</h4>
         <p style="font-size: 90%; color: #000000;">
-          Experts want control over which sources to trust, how to explore information, and how to customize the system to their workflow preferences.
+          Experts need to choose which sources to trust, how to explore information, and how to adapt the tool to their workflow; not just consume outputs.
         </p>
       </div>
 
@@ -218,13 +470,13 @@
       <div class="container" style="padding: 30px; padding-top: 40px;" data-aos="fade-up">
         <div class="text-with-margins">
         <h3>RESEARCH QUESTION</h3>
-        <p class="fst-italic" style=" font-weight: 600; padding-top: 2vh;">How do confidence levels, source attribution, and text highlighting impact user trust and understanding in RAG systems for financial analysis?</p>
+        <div class="rq-callout" ><p style="font-size: 120%;">How do confidence levels, source attribution, and text highlighting impact user trust and understanding in RAG systems for financial analysis?</p></div>
 
           <h4 style="font-weight: 500; font-size: 3vh;">Development Process</h4>
         <div style=" padding-top:1%">
           <h4 style="color: #524827; font-weight: 600; font-size: 120%; font-family: 'Josefin Sans';">RESEARCH METHODOLOGY</h4>
           <p style="font-size: 100%; color: #000000;">
-            Our study employed a mixed-methods approach combining quantitative trust measurements with qualitative user preference analysis through a controlled user study with 50 financial professionals.</p>
+            A controlled user study with <strong>50 financial professionals</strong> combined quantitative trust measurement (Likert-scale surveys, Wilcoxon signed-rank tests) with qualitative thematic analysis of user preferences.</p>
             <p style="padding-bottom: 2vh;"></p>
             <h4 style="color: #524827; font-weight: 600; font-size: 120%; font-family: 'Josefin Sans'; padding-bottom:2vh ;">SYSTEM FEATURES EVALUATED</h4>
             <div class="container" data-aos="fade-up">
@@ -232,50 +484,22 @@
                 <img src="./assets/img/confidence tag.png" alt="Iterations"  data-aos="zoom-in" width="100%" loading="lazy" style="border: 2px solid #00000052; border-radius: 20px;">
                 </div> 
             </div>
-            <h4>Source Attribution & Confidence Levels</h4>
-           <p  style="font-size: 100%; color: #000000;">
-            <ul>
-              <li>Each response includes confidence levels (LOW, MEDIUM, HIGH)</li>
-              <li>Source-specific answers rather than synthesized responses</li>
-              <li>Meta-summaries highlighting consensus and divergence across sources</li>
-              </ul>
-          </p>
+            <div class="feature-card"><h4>Source Attribution &amp; Confidence Levels</h4><ul><li>Each response includes confidence levels (LOW, MEDIUM, HIGH)</li><li>Source-specific answers rather than synthesized responses</li><li>Meta-summaries highlighting consensus and divergence across sources</li></ul></div>
           <div class="container-fluid" style="width: 80%; padding-top: 5%; padding-bottom: 5%;">
             <img src="./assets/img/highlight.jpg" alt="Iterations"  data-aos="zoom-in" width="100%" loading="lazy" style="border: 2px solid #00000052; border-radius: 20px;">
             </div> 
 
-          <h4>Transparency Through Highlighted Text</h4>
-           <p  style="font-size: 100%; color: #000000;">
-            <ul>
-              <li>Specific document sections used for generation are highlighted</li>
-              <li>Direct links to source PDFs with visual highlighting</li>
-              <li>Enables traceability and intelligibility of system reasoning</li>
-              </ul>
-          </p>
+          <div class="feature-card"><h4>Transparency Through Highlighted Text</h4><ul><li>Specific document sections used for generation are highlighted</li><li>Direct links to source PDFs with visual highlighting</li><li>Enables traceability and intelligibility of system reasoning</li></ul></div>
           <div class="container-fluid" style="width: 80%; padding-top: 5%; padding-bottom: 5%;">
             <img src="./assets/img/branching.png" alt="Iterations"  data-aos="zoom-in" width="100%" loading="lazy" style="border: 2px solid #00000052; border-radius: 20px;">
             </div> 
-          <h4>User Control Through Branching</h4>
-           <p  style="font-size: 100%; color: #000000;">
-            <ul>
-              <li>Multiple inquiry streams management</li>
-              <li>Source-specific questioning capabilities</li>
-              <li>Parallel exploration of different reports or topics</li>
-              </ul>
-          </p>
+          <div class="feature-card"><h4>User Control Through Branching</h4><ul><li>Multiple inquiry streams management</li><li>Source-specific questioning capabilities</li><li>Parallel exploration of different reports or topics</li></ul></div>
 
           <div class="container-fluid" style="width: 80%; padding-top: 5%; padding-bottom: 5%;">
             <img src="./assets/img/feedback_new.png" alt="Iterations"  data-aos="zoom-in" width="100%" loading="lazy" style="border: 2px solid #00000052; border-radius: 20px;">
             </div>
 
-          <h4>Feedback Mechanisms</h4>
-           <p  style="font-size: 100%; color: #000000;">
-            <ul>
-              <li>Categorical and qualitative feedback options</li>
-              <li>Human-machine collaboration support</li>
-              <li>System improvement through user input</li>
-              </ul>
-          </p>
+          <div class="feature-card"><h4>Feedback Mechanisms</h4><ul><li>Categorical and qualitative feedback options</li><li>Human-machine collaboration support</li><li>System improvement through user input</li></ul></div>
  
         </div>          
 
@@ -284,119 +508,85 @@
   </div>
 
 
-    <div class= "frame-bg" style=" background-color: #ffffff; width: 100%;">
+    <div class="frame-bg findings-section" style="width: 100%;">
 
       <div class="container" style="padding: 30px; padding-top: 40px;" data-aos="fade-up">
         <div class="text-with-margins">
 
-          <div style=" padding-top:1%">
+          <div style="padding-top:1%">
             <h4 style="color: #524827; font-weight: 600; font-size: 120%; font-family: 'Josefin Sans';">RESEARCH FINDINGS</h4>
             <h5 style="font-size: 2vh; font-weight:600; padding-top: 2vh ; padding-bottom: 2vh;">KEY INSIGHTS FROM USER STUDY</h5>
-            <h4 style="color: #606060; font-weight: 600; font-size: 100%;">#1  IMPACT ON TRUST</h4>
-            <p style="font-size: 100%; color: #000000;">
+            <div class="finding-card fc-trust">
+              <div class="finding-label" style="font-size: 90%;">#1 Finding</div>
+              <h4>Impact on Trust</h4>
+              <span class="stat-pill">p = 0.0036 (significant)</span>
               <ul>
-                <li>Confidence levels alone did not significantly increase trust (p = 0.080)</li>
+                <li>Confidence levels alone did <em>not</em> significantly increase trust (p = 0.080)</li>
                 <li>Text highlighting + confidence levels significantly increased trust (p = 0.0036)</li>
-                <li>Transparency features more impactful than confidence indicators alone</li>
-                </ul>
-            </p>
+                <li>Visual transparency more impactful than confidence indicators alone</li>
+              </ul>
+            </div>
 
             <div class="container-fluid" style="width: 80%; padding-top: 5%; padding-bottom: 5%;">
               <img src="./assets/img/trust.jpg" alt="Iterations"  data-aos="zoom-in" width="100%" loading="lazy">
               </div>
 
-            <h4 style="color: #606060; font-weight: 600; font-size: 100%;">#2  IMPACT ON UNDERSTANDING</h4>
-            <p style="font-size: 100%; color: #000000;">
+            <div class="finding-card fc-understand">
+              <div class="finding-label" style="font-size: 90%;">#2 Finding</div>
+              <h4>Impact on Understanding</h4>
+              <span class="stat-pill">p = 0.0021 (significant)</span>
               <ul>
                 <li>Text highlighting significantly improved understanding (p = 0.0021)</li>
                 <li>Users could better trace reasoning with highlighted source sections</li>
                 <li>Visual transparency more effective than numerical confidence scores</li>
-                </ul>
-            </p>
+              </ul>
+            </div>
 
             <div class="container-fluid" style="width: 80%; padding-top: 5%; padding-bottom: 5%;">
               <img src="./assets/img/understanding.jpg" alt="Iterations"  data-aos="zoom-in" width="100%" loading="lazy">
               </div>
 
-            <h4 style="color: #606060; font-weight: 600; font-size: 100%;">#3  USER CONTROL PREFERENCE</h4>
-            <p class="fst-italic"> Four key themes emerged from qualitative analysis:</p>
-            <p style="font-size: 100%; color: #000000;">
-              <ol>
-                <li>
-                  Control Over Sources (15/50 participants)
-                  <ul>
-                    <li>Desire to shortlist specific trusted reports</li>
-                    <li>Preference for certain brokerage sources</li>
-                    <li>Need to include additional document types</li>
-                  </ul>
-                </li>
-                <li style="padding-top: 2vh;">
-                  Personalization & Adaptability (8/50 participants)
-                  <ul>
-                    <li>Strong preferences for specific analysts</li>
-                    <li>Balance between personalization and avoiding bias</li>
-                    <li>System customization capabilities</li>
-                  </ul>
-                </li>
-                <li style="padding-top: 2vh;">
-                  Branching & Iteration (27/50 participants)
-                  <ul>
-                    <li>High value in branching off specific reports</li>
-                    <li>Iterative questioning for deeper understanding</li>
-                    <li>Greater analytical control</li>
-                  </ul>
-                </li>
-                <li style="padding-top: 2vh;">
-                  Feedback Mechanisms (26/50 participants)
-                  <ul>
-                    <li>Transparency in how feedback is used</li>
-                    <li>System improvement through user input</li>
-                    <li>Historical data evaluation capabilities</li>
-                  </ul>
-                </li>
-              </ol>
-              
-            </p>
+            <div class="finding-card fc-control">
+              <div class="finding-label" style="font-size: 90%;">#3 Finding</div>
+              <h4>User Control Preference</h4>
+              <p style="font-size:0.88rem; color:#555; margin-bottom:0.6rem;">Four key themes from qualitative analysis:</p>
+              <div class="theme-grid">
+                <div class="theme-card">
+                  <div class="theme-count">15<span style="font-size:0.9rem; font-weight:500; color:#888;">/50</span></div>
+                  <div class="theme-label">Control Over Sources</div>
+                  <p>Shortlist trusted reports; prefer specific brokerage sources; add custom documents.</p>
+                </div>
+                <div class="theme-card">
+                  <div class="theme-count">8<span style="font-size:0.9rem; font-weight:500; color:#888;">/50</span></div>
+                  <div class="theme-label">Personalization &amp; Adaptability</div>
+                  <p>Prefer specific analysts; balance personalization with avoiding bias.</p>
+                </div>
+                <div class="theme-card">
+                  <div class="theme-count">27<span style="font-size:0.9rem; font-weight:500; color:#888;">/50</span></div>
+                  <div class="theme-label">Branching &amp; Iteration</div>
+                  <p>High value in branching off specific reports for deeper, iterative questioning.</p>
+                </div>
+                <div class="theme-card">
+                  <div class="theme-count">26<span style="font-size:0.9rem; font-weight:500; color:#888;">/50</span></div>
+                  <div class="theme-label">Feedback Mechanisms</div>
+                  <p>Transparency in how feedback is used; historical data evaluation.</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div style=" padding-top:1%"> 
+          <div style="padding-top:1.5rem">
             <h4 style="color: #524827; font-weight: 600; font-size: 100%; font-family: 'Josefin Sans';">DESIGN IMPLICATIONS</h4>
-            <p style="font-size: 100%; color: #000000;">
-              Our findings reveal that visual transparency features, particularly source highlighting, are more effective than confidence scores alone in building user trust and understanding in RAG systems.
-               The study demonstrated that while numerical confidence indicators provided useful context, they did not significantly impact trust levels, whereas text highlighting that shows exactly which document sections informed AI responses significantly improved both trust and comprehension. 
-
-            </p> 
+            <div class="implication-box">
+              <p>The clearest takeaway: <strong>showing your work matters more than claiming confidence.</strong> Text highlighting, showing which document sections the AI actually used, significantly outperformed numerical confidence scores for both trust (p&nbsp;=&nbsp;0.0036) and comprehension (p&nbsp;=&nbsp;0.0021). And 27 of 50 participants found branching the most valuable control feature: because in high-stakes decisions, verifying AI reasoning before acting is non-negotiable.</p>
             </div>
-           
-
-          <div style=" padding-top:1%; color: #000000;"> 
-            <p> Domain experts require user control mechanisms such as source filtering and branching capabilities to maintain agency over their decision-making processes, with 27 out of 50 participants finding branching functionality particularly valuable for investigating specific reports in depth. </p>
-            <p>Additionally, verification workflows become essential in high-stakes contexts where professionals must trace AI-generated insights back to original sources for accountability and regulatory compliance, enabling them to validate recommendations before making critical financial decisions.</p>
-            </div>
+          </div>
             
-            <div style=" padding-top:10%"> 
+                          <div style=" padding-top:10%"> 
               <h4 style="color: #524827; font-weight: 600; font-size: 100%; font-family: 'Josefin Sans';">RESEARCH IMPACT</h4>
-            
-                <h4 style=" color: #000000;">Academic Contributions:</h4>
-                <p  style="font-size: 100%; color: #000000;">
-                  <ul>
-                    <li>Novel user-centered approach to RAG system design for domain experts</li>
-                    <li>Empirical evidence on the relationship between transparency features and trust</li>
-                    <li>Actionable design guidelines for trustworthy AI systems in high-stakes domains</li>
-                   
-                    </ul>
+                <p style="font-size: 100%; color: #000000;">
+                  The study produced empirical design guidelines for RAG systems used by domain experts: with direct applicability to legal, healthcare, and consulting contexts where AI-assisted decisions carry real accountability.
                 </p>
-      
-                <h4 style=" color: #000000;">Practical Applications:</h4>
-                <p  style="font-size: 100%; color: #000000;">
-                  <ul>
-                    <li>Framework applicable to other expert domains (legal, healthcare, consulting)</li>
-                    <li>Design patterns for transparency in AI-assisted decision making</li>
-                    <li>User study methodology for evaluating trust in AI systems</li>
-        
-                    </ul>
-                </p>
-              
               </div>
                    
           </div>
@@ -415,6 +605,7 @@
 
 
     <!-- ======= Reflection ======= -->
+     <div style="background-color: #ffffff;">
     <div class= "frame-bg spike" style=" background-color: #488fdb65; width: 100%; padding-bottom: 5%;">
 
     
@@ -424,22 +615,12 @@
 
         <h4 style=" color: #000000;">System Architecture:</h4>
           <p  style="font-size: 100%; color: #000000;">
-            <ul>
-              <li>Retrieval-Augmented Generation with vector database storage</li>
-              <li>Confidence scoring based on relevance and factuality metrics</li>
-              <li>Document highlighting through semantic similarity matching</li>
-              <li>Multi-source response generation with source attribution</li>
-              </ul>
+            RAG with vector database storage; confidence scoring on relevance and factuality; document highlighting via semantic similarity; multi-source response generation with full source attribution.
           </p>
 
           <h4 style=" color: #000000;">Evaluation Methodology:</h4>
           <p  style="font-size: 100%; color: #000000;">
-            <ul>
-              <li>Pre/post trust surveys with Likert scales</li>
-              <li>Controlled task-based user study design</li>
-              <li>Statistical analysis using Wilcoxon signed-rank tests</li>
-              <li>Qualitative thematic analysis of user preferences</li>
-              </ul>
+            Pre/post Likert-scale trust surveys; controlled task-based study; Wilcoxon signed-rank statistical analysis; qualitative thematic analysis.
           </p>
           
             </div>
@@ -459,19 +640,8 @@
     <div class="container padding" style="padding-top: 50px;" data-aos="fade-up"> 
       <div class="text-with-margins">
       <h3>REFLECTION </h3>
-      <p>
-        This research project taught me the importance of human-centered design in AI systems. While technical improvements in RAG systems are important, user trust and understanding are equally critical for successful adoption. </p>
-        <p  style="font-size: 100%; color: #000000;">
-          <ul>
-            <li>Users need agency, not just accurate responses</li>
-            <li>Transparency must be actionable, not just informative</li>
-            <li>Domain expertise shapes how users interact with AI explanations</li>
-            <li>Trust building requires multiple complementary design features</li>
-            </ul>
-        </p>
-        <p>
-          The study reinforced that successful AI systems for experts require careful balance between system capability and user control, with transparency serving as the bridge between technical functionality and user confidence.
-        </p>
+      <p>The central insight: <strong>users need agency, not just accurate responses.</strong> Technical improvements in RAG systems matter, but if experts can’t see the reasoning, they won’t act on the output.</p>
+        <p>Transparency has to be actionable. Showing a confidence score doesn’t help. Highlighting the exact document passage that informed the answer does. This study gave me rigorous, quantitative evidence to back that design principle.</p>
           </div>
         </div>
 

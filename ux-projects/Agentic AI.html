@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <title>Seeing Inside AI Agents</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/projectstyle.css" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVNYZ6Y0L4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MVNYZ6Y0L4');
+  </script>
+
+  <style>
+    /* ── Palette ── */
+    :root {
+      --mint:       #BCFFE8;
+      --mint-mid:   #8df5d0;
+      --mint-deep:  #3ecfa0;
+      --green-dark: #1a6b52;
+      --green-ink:  #0d3d2e;
+      --white:      #ffffff;
+      --off-white:  #f4fdf9;
+      --text-body:  #1e3830;
+      --text-muted: #4a7060;
+      --border:     #b2f0d8;
+    }
+
+    /* ── Global overrides (scoped) ── */
+    body { background: var(--white); }
+
+    /* ── Home button colour ── */
+    .home-btn { background: rgba(13, 61, 46, 0.8); }
+    .home-btn:hover { background: rgba(13, 61, 46, 0.95); }
+
+    /* ── Hero band ── */
+    .ozchi-hero {
+      background: var(--green-ink);
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .ozchi-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 50%, rgba(188,255,232,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 80% at 10% 80%, rgba(62,207,160,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ozchi-hero .badge-conference {
+      display: inline-block;
+      background: var(--mint);
+      color: var(--green-ink);
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.8rem;
+    }
+    .ozchi-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      color: var(--mint);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.15;
+      margin-bottom: 1.4rem;
+      font-weight: 400;
+    }
+    .ozchi-hero h1 em {
+      font-style: italic;
+      color: var(--mint-mid);
+    }
+    .ozchi-hero .hero-sub {
+      font-family: 'Open Sans', sans-serif;
+      color: rgba(188,255,232,0.75);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 680px;
+      margin-bottom: 2rem;
+    }
+    .ozchi-hero .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .ozchi-hero .meta-chip {
+      background: rgba(188,255,232,0.1);
+      border: 1px solid rgba(188,255,232,0.25);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      font-size: 0.82rem;
+      color: rgba(188,255,232,0.85);
+      font-family: 'Syne', sans-serif;
+    }
+    .ozchi-hero .meta-chip strong {
+      color: var(--mint);
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.1rem;
+    }
+
+    /* ── Section labels ── */
+    .oz-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      border-bottom: 2px solid var(--mint);
+      padding-bottom: 0.35rem;
+      margin-bottom: 1.4rem;
+      display: inline-block;
+    }
+
+    /* ── Abstract band ── */
+    .oz-abstract {
+      background: var(--off-white);
+      border-left: 5px solid var(--mint-deep);
+      padding: 2rem 2.4rem;
+      border-radius: 0 10px 10px 0;
+      margin: 2rem 0;
+    }
+    .oz-abstract p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text-body);
+      margin: 0;
+    }
+
+    /* ── Role pills ── */
+    .role-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      padding: 0;
+      list-style: none;
+      margin: 0.5rem 0 0;
+    }
+    .role-list li {
+      background: var(--mint);
+      color: var(--green-ink);
+      font-family: 'Syne', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+    }
+
+    /* ── Context band ── */
+    .oz-context-band {
+      background: var(--green-ink);
+      width: 100%;
+      padding: 3.5rem 0;
+    }
+    .oz-context-band h3 { color: var(--mint) !important; }
+    .oz-context-band h4 { color: var(--mint-mid) !important; font-family: 'Syne', sans-serif !important; }
+    .oz-context-band p, .oz-context-band li { color: rgba(188,255,232,0.8) !important; line-height: 1.8; }
+
+    /* ── Why it matters cards ── */
+    .why-card {
+      background: rgba(188,255,232,0.07);
+      border: 1px solid rgba(188,255,232,0.18);
+      border-top: 3px solid var(--mint-deep);
+      border-radius: 0 0 10px 10px;
+      padding: 1.4rem 1.6rem;
+      height: 100%;
+    }
+    .why-card .why-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--mint-deep);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .why-card h4 { color: var(--mint) !important; font-size: 0.9rem !important; font-weight: 700 !important; margin-bottom: 0.6rem; }
+    .why-card p { font-size: 0.88rem !important; color: rgba(188,255,232,0.75) !important; margin: 0; }
+
+    /* ── RQ callout ── */
+    .rq-callout {
+      background: var(--off-white);
+      border-left: 4px solid var(--mint-deep);
+      padding: 1.2rem 1.6rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1rem 0 2rem;
+    }
+    .rq-callout p {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--green-ink);
+      font-weight: 600;
+      font-style: normal !important;
+      line-height: 1.6;
+    }
+
+    /* ── Study Design section ── */
+    .oz-study { background: #f0fdf8; width: 100%; }
+
+    /* ── Condition cards ── */
+    .condition-card {
+      border-radius: 10px;
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid;
+    }
+    .condition-card.opaque      { background: #f0fdf8; border-color: #8df5d0; }
+    .condition-card.partial     { background: #e0faf2; border-color: #3ecfa0; }
+    .condition-card.transparent { background: #cbf7e8; border-color: #1a6b52; }
+    .condition-card .cond-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 0.3rem;
+    }
+    .condition-card h4 { color: var(--green-ink) !important; font-size: 0.95rem !important; font-weight: 700 !important; margin-bottom: 0.4rem; }
+    .condition-card p { font-size: 0.88rem; color: var(--text-muted); margin: 0; }
+
+    /* ── Findings section ── */
+    .oz-findings { background: #f4fdf9; width: 100%; }
+
+    /* ── Finding cards ── */
+    .finding-card {
+      border-radius: 10px;
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+    .finding-card.fc-1 { background: #dff8f0; border-left: 5px solid #3ecfa0; }
+    .finding-card.fc-2 { background: #ccf5e8; border-left: 5px solid #1a9e74; }
+    .finding-card.fc-3 { background: #bbf0de; border-left: 5px solid #1a6b52; }
+
+    .finding-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      opacity: 0.7;
+      margin-bottom: 0.25rem;
+    }
+    .finding-card h4 {
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+      color: var(--green-ink) !important;
+      margin-bottom: 0.7rem;
+    }
+    .stat-pill {
+      display: inline-block;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      color: var(--green-dark);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .finding-card ul { padding-left: 1.1rem; margin-bottom: 0; }
+    .finding-card li { font-size: 0.92rem; color: var(--text-body); padding: 2px 0; line-height: 1.7; }
+
+    /* ── Strategy grid ── */
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) { .strategy-grid { grid-template-columns: 1fr; } }
+    .strategy-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .strategy-pct {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--green-dark);
+      line-height: 1;
+      display: block;
+    }
+    .strategy-change {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--mint-deep);
+      letter-spacing: 0.08em;
+    }
+    .strategy-name {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 600;
+    }
+
+    /* ── Implication box ── */
+    .implication-box {
+      background: var(--green-ink);
+      border-radius: 10px;
+      padding: 1.8rem 2.2rem;
+      margin: 2rem 0 1rem;
+    }
+    .implication-box p {
+      color: rgba(188,255,232,0.85);
+      margin: 0;
+      font-size: 0.97rem;
+      line-height: 1.8;
+    }
+    .implication-box strong { color: var(--mint); }
+
+    /* ── Design implications cards ── */
+    .design-impl-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .design-impl-card .impl-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--mint);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+    .design-impl-card h5 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--green-ink);
+      margin-bottom: 0.3rem;
+    }
+    .design-impl-card p { font-size: 0.86rem; color: var(--text-muted); margin: 0; line-height: 1.65; }
+
+    /* ── Reflection band ── */
+    .oz-reflection {
+      background: var(--mint);
+      width: 100%;
+    }
+    .oz-reflection h3 { color: var(--green-ink) !important; }
+    .oz-reflection p { color: var(--green-ink) !important; line-height: 1.8; }
+
+    /* ── Publication band ── */
+    .oz-pub {
+      background: var(--green-ink);
+      width: 100%;
+    }
+    .oz-pub h3 { color: var(--mint) !important; }
+    .oz-pub p { color: rgba(188,255,232,0.8) !important; font-size: 0.9rem; line-height: 1.75; }
+    .oz-pub a { color: var(--mint-mid) !important; }
+
+    /* ── Global text ── */
+    .text-with-margins p,
+    .text-with-margins li { line-height: 1.8; color: var(--text-body); }
+    .text-with-margins h3 { color: var(--green-ink); font-family: 'DM Serif Display', serif; font-weight: 400; }
+    .text-with-margins h4 { color: var(--text-muted) !important; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .ozchi-hero { padding: 3.5rem 0 3rem; }
+      .ozchi-hero h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="../index.html" class="home-btn" aria-label="Back to Home">
+    <svg viewBox="0 0 24 24" class="home-icon">
+      <path d="M10 20v-6h4v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-8h1.55c.66 0 .99-.8.47-1.27L13.12 3.52c-.6-.56-1.53-.56-2.12 0L2.98 10.73c-.52.47-.19 1.27.47 1.27H5v8c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2z"/>
+    </svg>
+  </a>
+
+  <!-- ── HERO ── -->
+  <div class="ozchi-hero">
+    <div class="container">
+      <div class="text-with-margins">
+        <span class="badge-conference">2026 &nbsp;·&nbsp; Research Paper</span>
+        <h1>Seeing Inside AI Agents:<br><em>How Transparency Shapes<br>Human-Agent Interactions</em></h1>
+        <p class="hero-sub">A controlled study with 50 participants examining how transparency levels in LLM-based agents affect perceived understanding, error detection, and interaction strategies: revealing key design trade-offs for safe AI deployment.</p>
+        <div class="meta-row">
+          <div class="meta-chip"><strong>Participants</strong>50</div>
+          <div class="meta-chip"><strong>Conditions</strong>Opaque · Partial · Transparent</div>
+          <div class="meta-chip"><strong>Domain</strong>Airline Customer Service</div>
+          <div class="meta-chip"><strong>Method</strong>Within-Subjects Controlled Study</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ── INTRO ── -->
+    <div id="about" class="about">
+      <div class="container padding" data-aos="fade-up">
+        <div class="section-title">
+          <div class="text-with-margins">
+            <div class="section-title-over" style="padding-bottom: 0;">
+              <!--<h3>UX RESEARCH + PUBLICATION</h3>
+            </div>
+            <h2 style="color: #1a6b52;">Seeing Inside AI Agents</h2>-->
+
+            <div class="oz-abstract">
+              <p>As LLM-based agents move from passive assistants to proactive systems that execute tasks and make decisions on users' behalf, understanding how transparency shapes human-agent interaction becomes critical for safe deployment. We present a controlled study examining how transparency affects perceived understanding, error detection, and interaction strategies: revealing that transparency presents fundamental design trade-offs rather than being uniformly beneficial.</p>
+            </div>
+            
+             <h3 style="color: #757575; font-size: 200%;">My Role  </h3>
+            <p>
+              <ul>
+              <li>Study Design</li>
+              <li>System Prototyping (3 transparency conditions)</li>
+              <li>User Research (50 participants)</li>
+              <li>Statistical Analysis</li>
+              <li>Paper Writing</li>
+            </ul>
+                </ul>
+            </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONTEXT + WHY IT MATTERS ── -->
+    <div class="oz-context-band frame-bg">
+      <div class="container" style="padding: 30px; padding-top: 40px;" data-aos="fade-up">
+        <div class="text-with-margins">
+          <span class="oz-label" style="color: var(--mint); border-color: var(--mint-deep);">Research Context</span>
+          <h3>Effect  of  Transparency</h3>
+          <p style="color: rgba(188,255,232,0.75); max-width: 700px;">LLM agents are non-deterministic, prone to silent failures (errors that occur without explicit warning) and operate within an implicit trust relationship with users. As they take on higher-stakes roles, the human ability to supervise and audit agent behavior becomes critical. Transparency has been proposed as the mechanism. But does it actually work?</p>
+
+          <div class="row mt-4">
+            <div class="col-md-4 mb-3">
+              <div class="why-card">
+                <div class="why-num">#1 Observation</div>
+                <h4>Silent Failures</h4>
+                <p>Errors that appear correct without explicit warning : and existing transparency approaches don't reliably help users catch them.</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="why-card">
+                <div class="why-num">#2 Observation</div>
+                <h4>Over-Reliance</h4>
+                <p>Detailed explanations can increase confidence without improving error detection : a well-known but under-studied risk in agent contexts.</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="why-card">
+                <div class="why-num">#3 Observation</div>
+                <h4>Strategy Shifts</h4>
+                <p>Transparency reshapes how users interact with agents (not just what they understand) with unintended effects on contestation and probing behaviour.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── RESEARCH QUESTIONS ── -->
+    <div class="frame-bg oz-study">
+      <div class="container padding" style="padding-top: 50px;" data-aos="fade-up">
+        <div class="text-with-margins">
+          <span class="oz-label">Research Questions</span>
+          <div class="rq-callout">
+            <p>RQ1: How does transparency affect users' perceived understanding and ability to verify agent decisions?<br>
+            RQ2: How does transparency shape perceptions of agent steerability?<br>
+            RQ3: Does transparency affect the composition of user response strategies?</p>
+          </div>
+
+          <h3>Study Design</h3>
+          <p>A within-subjects controlled study with <strong>50 participants</strong> recruited via professional networking platforms (all had prior AI chatbot experience). Participants interacted with a simulated airline customer-service agent across three scenarios; ticket upgrade, booking change, and compensation, each under one of three transparency conditions. Condition order was counterbalanced using a Latin square.</p>
+
+          <p>Scripted responses were used to ensure precise control over correctness and transparency quality, eliminating stochastic variation that real LLMs would introduce.</p>
+
+          <h4 style="color: var(--green-dark) !important; font-family: 'Syne', sans-serif !important; font-size: 1.15rem !important; font-weight: 700 !important; letter-spacing: 0.1em; text-transform: uppercase; margin: 2rem 0 1rem;">The Three Conditions</h4>
+
+          <div class="container-fluid" style="width: 80%; padding-top: 2%; padding-bottom: 4%;">
+          <img src="./assets/img/Opaque.png" alt="Opaque AI agent interface" data-aos="zoom-in" width="100%" loading="lazy" style="border: 2px solid #00000052; border-radius: 20px;">
+          </div>
+
+          <div class="condition-card opaque">
+            <div class="cond-label">Condition A</div>
+            <h4>Opaque</h4>
+            <p>Decision provided with minimal justification. No factors or policy reasoning disclosed.</p>
+          </div>
+          
+          <div class="container-fluid" style="width: 80%; padding-top: 2%; padding-bottom: 4%;">
+          <img src="./assets/img/Partial.png" alt="Translucent AI agent interface" data-aos="zoom-in" width="100%" loading="lazy" style="border: 2px solid #00000052; border-radius: 20px;">
+          </div>
+
+
+          <div class="condition-card partial">
+            <div class="cond-label">Condition B</div>
+            <h4>Partial</h4>
+            <p>Factors and values disclosed, but without explicit policy mapping or causal reasoning.</p>
+          </div>
+          
+          <div class="container-fluid" style="width: 80%; padding-top: 2%; padding-bottom: 4%;">
+          <img src="./assets/img/Transparent.png" alt="Transparent AI agent interface" data-aos="zoom-in" width="100%" loading="lazy" style="border: 2px solid #00000052; border-radius: 20px;">
+          </div>
+
+          <div class="condition-card transparent">
+            <div class="cond-label">Condition C</div>
+            <h4>Transparent</h4>
+            <p>Full reasoning disclosed: factors, values, and explicit policy-linked logic: the most information-rich condition.</p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FINDINGS ── -->
+    <div class="frame-bg oz-findings">
+      <div class="container padding" style="padding-top: 50px;" data-aos="fade-up">
+        <div class="text-with-margins">
+          <!--<span class="oz-label">Research Findings</span>
+          <h3>What We Found</h3>
+
+          <!-- Finding 1 
+          <div class="finding-card fc-1">
+            <div class="finding-label">RQ1 · Understanding &amp; Error Detection</div>
+            <h4>Transparency improves perceived understanding — but not error detection</h4>
+            <span class="stat-pill">χ²(2) = 9.23, p = .009</span>
+            <ul>
+              <li>Partial transparency improved error detection vs. Opaque (Z = 110.50, p = .002, r = 0.43)</li>
+              <li>Full transparency did <em>not</em> significantly improve error detection (p = .385 vs. Opaque)</li>
+              <li>Fluent, complete explanations created an <em>illusion of reliability</em> — users accepted incorrect decisions at rates comparable to the opaque condition</li>
+              <li>Partial transparency may preserve sufficient uncertainty to prompt deliberate evaluation</li>
+            </ul>
+          </div>
+
+          <!-- Finding 2 
+          <div class="finding-card fc-2">
+            <div class="finding-label">RQ2 · Perceived Agent Steerability</div>
+            <h4>Full transparency reduces perceived negotiability</h4>
+            <span class="stat-pill">χ²(2) = 7.46, p = .024</span>
+            <ul>
+              <li>Perceived steerability decreased monotonically with transparency (Opaque M=3.89 → Transparent M=3.26)</li>
+              <li>Transparent agents perceived as significantly less steerable than Opaque (Z = 142.50, p = .004, r = 0.40)</li>
+              <li>Full transparency clarified decision boundaries — users recognised them as immutable rather than negotiable</li>
+            </ul>
+          </div>
+
+          <!-- Finding 3 
+          <div class="finding-card fc-3">
+            <div class="finding-label">RQ3 · Response Strategies</div>
+            <h4>Transparency redirects — rather than eliminates — strategic interaction</h4>
+            <span class="stat-pill">χ²(4) = 11.23, p = .024, Cramér's V = 0.24</span>
+            <ul>
+              <li>Overall adversarial strategy rates did not change significantly (p = .281)</li>
+              <li>Strategy composition shifted: reduced direct contestation, increased acceptance and policy probing</li>
+              <li>Users shifted from challenging the agent's responsiveness to probing the policy framework's rigidity</li>
+            </ul>
+
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin: 1rem 0 0.6rem; font-weight: 600;">Strategy shift under transparent vs. opaque conditions:</p>
+            <div class="strategy-grid">
+              <div class="strategy-card">
+                <span class="strategy-pct">+15%</span>
+                <div class="strategy-change">↑ increase</div>
+                <div class="strategy-name">Acceptance</div>
+              </div>
+              <div class="strategy-card">
+                <span class="strategy-pct">−</span>
+                <div class="strategy-change">↓ reduced</div>
+                <div class="strategy-name">Direct Contestation</div>
+              </div>
+              <div class="strategy-card">
+                <span class="strategy-pct">↗</span>
+                <div class="strategy-change">↑ increased</div>
+                <div class="strategy-name">Policy Probing</div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- Design Implications -->
+          <div style="padding-top: 1.5rem;">
+            <span class="oz-label">Design Implications</span>
+
+            <div class="implication-box">
+              <p style="color: #cbf7e8;">The core finding: <strong>transparency is a design trade-off, not an inherently beneficial property.</strong> More transparency improves legibility and sets clearer expectations, but it does not reliably support error detection and reshapes user strategies in ways designers may not intend.</p>
+            </div>
+
+            <div class="design-impl-card">
+              <div class="impl-icon">◑</div>
+              <div>
+                <h5>Partial transparency supports better judgment</h5>
+                <p>Showing key factors (without full reasoning) helps users question decisions. Too much detail can make wrong answers feel more convincing.</p>
+              </div>
+            </div>
+            <div class="design-impl-card">
+              <div class="impl-icon">⊡</div>
+              <div>
+                <h5>Full transparency changes how people interact</h5>
+                <p>It helps users understand system limits, but shifts their focus toward exploring rules instead of checking decisions.</p>
+              </div>
+            </div>
+            <div class="design-impl-card">
+              <div class="impl-icon">⊕</div>
+              <div>
+                <h5>Design transparency for auditing, not just explanation</h5>
+                <p>Use progressive disclosure and tools like “What if?” scenarios to help users test and verify decisions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── REFLECTION ── -->
+    <div class="oz-reflection frame-bg" style="padding: 3.5rem 0;">
+      <div class="container" style="padding: 30px;" data-aos="fade-up">
+        <div class="text-with-margins">
+          <span class="oz-label" style="color: var(--green-ink); border-color: var(--green-dark);">Reflection</span>
+          <h3>Why This Work Matters</h3>
+          <p>As LLM agents become more autonomous, the question isn't just whether they're capable; it's whether users can meaningfully oversee them. This study shows that designing for transparency isn't as simple as showing more information. The relationship between what users <em>see</em> and what they can meaningfully <em>evaluate</em> is non-trivial, and getting it wrong has real consequences in high-stakes domains.</p>
+          <p>The finding that partial transparency outperformed full transparency for error detection is a counter-intuitive result that has direct implications for how AI systems are designed, and a compelling argument for empirical HCI research alongside capability benchmarks.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PUBLICATION ── 
+     <div style="background-color: #BCFFE8;">
+    <div class="oz-pub frame-bg spike-top" style="padding: 3.5rem 0 4rem;">
+      <div class="container" style="padding: 30px; padding-top: 50px;" data-aos="fade-up">
+        <div class="text-with-margins">
+          <span class="oz-label" style="color: var(--mint); border-color: var(--mint-deep);">Publication Details</span>
+          <h3>Citation</h3>
+          <p>Divya Ravi. 2026. Seeing Inside AI Agents: How Transparency Shapes Human-Agent Interactions. In Proceedings of the 38th Australian Conference on Human-Computer Interaction (OZCHI '26). ACM, New York, NY, USA.</p>
+          <p style="margin-top: 1rem;"><strong style="color: var(--mint);">Conference:</strong> OZCHI 2026 — Australian Conference on Human-Computer Interaction</p>
+          <p><strong style="color: var(--mint);">Status:</strong> Submitted / Under Review</p>
+        </div>
+      </div>
+    </div>
+    </div>-->
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="credits">
+        <div class="copyright">
+          <p>&copy; <script>document.write(new Date().getFullYear())</script><strong> Divya Ravi</strong></p>
+          <a style="font-size: smaller;">Designed by Divya Ravi</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

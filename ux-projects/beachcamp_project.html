@@ -38,6 +38,126 @@
     width: 75vw; /* Make the card take the full viewport width */
   }
 }
+
+.project-tag {
+  display: inline-block;
+  background-color: #fdeb84;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 10px;
+  letter-spacing: 0.3px;
+}
+
+
+.project-hero {
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--hero-bg);
+    }
+    .project-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 50%, var(--hero-glow-a) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 80% at 10% 80%, var(--hero-glow-b) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .project-hero .badge-type {
+      display: inline-block;
+      background: var(--hero-accent);
+      color: var(--hero-bg);
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.8rem;
+    }
+    .project-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      color: var(--hero-accent);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.15;
+      margin-bottom: 1.4rem;
+      font-weight: 400;
+    }
+    .project-hero h1 em {
+      font-style: italic;
+      color: var(--hero-accent-mid);
+    }
+    .project-hero .hero-sub {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--hero-sub-text);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 680px;
+      margin-bottom: 2rem;
+    }
+    .project-hero .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+    }
+    .project-hero .meta-chip {
+      background: var(--hero-chip-bg);
+      border: 1px solid var(--hero-chip-border);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      font-size: 0.82rem;
+      color: var(--hero-sub-text);
+      font-family: 'Syne', sans-serif;
+    }
+    .project-hero .meta-chip strong {
+      color: var(--hero-accent);
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.1rem;
+    }
+    @media (max-width: 768px) {
+      .project-hero { padding: 3.5rem 0 3rem; }
+      .project-hero h1 { font-size: 1.8rem; }
+    }
+
+
+
+      /* =============================================================
+       ① BEACH CAMP
+       Palette: deep ocean navy → coral/warm white accents
+    ============================================================= */
+    .beach-hero {
+      --hero-bg:           #0b1f3a;
+      --hero-accent:       #cbe2ff;
+      --hero-accent-mid:   #8fb9f5;
+      --hero-sub-text:     rgba(203, 226, 255, 0.72);
+      --hero-glow-a:       rgba(143, 185, 245, 0.14);
+      --hero-glow-b:       rgba(72, 143, 219, 0.09);
+      --hero-chip-bg:      rgba(203, 226, 255, 0.08);
+      --hero-chip-border:  rgba(203, 226, 255, 0.22);
+      --hero-home-btn:     rgba(11, 31, 58, 0.85);
+      --hero-home-btn-hover: rgba(11, 31, 58, 0.98);
+    }
+    /* Subtle wave texture overlay */
+    .beach-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to top, rgba(173, 201, 255, 0.06), transparent);
+      pointer-events: none;
+    }
+
+
+
 </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVNYZ6Y0L4"></script>
@@ -92,17 +212,47 @@
   <main id="main">
 
 
-     <!-- Hero Image -->
+     <!-- Hero Image 
 
      <div class="container-fluid hero-container">
       <img src="assets/img/beach/beachcamp.png" class="img-fluid border hero-image" alt="Example image" loading="lazy">
       <div style=" max-width: 80vw;">
      <!--<div class="sun-animation">
         <img src="assets/img/beach/sls.png" class="sun-image" alt="Sun Image">
-      </div> -->
+      </div> 
     </div>
-    </div>
+    </div>-->
 
+    
+<div class="project-hero beach-hero" style="padding-top: 6vh;">
+  <div class="container">
+    <div class="text-with-margins">
+
+      <span class="badge-type">UX Design Case Study &nbsp;·&nbsp; Surf Life Saving Australia</span>
+
+      <h1>The Beach Camp<br><em>Redirecting Risk<br>Through Play</em></h1>
+
+      <p class="hero-sub">Selected as the standout submission from 30 entries and nominated for the 2024 USYD ADP Graduate Showcase : Beach Camp is an AR-powered app that steers beachgoers away from unpatrolled beaches without ever telling them what not to do.</p>
+
+      <div class="meta-row">
+        <div class="meta-chip">
+          <strong>Client</strong>
+          Surf Life Saving Australia
+        </div>
+        <div class="meta-chip">
+          <strong>Platform</strong>
+          iOS · Google Maps Integration
+        </div>
+        <div class="meta-chip">
+          <strong>Key Method</strong>
+          Behaviour-Change Design
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- END BEACH CAMP HERO -->
 
     <!-- End Hero -->
 
@@ -119,41 +269,44 @@
         <div class="section-title">
           <div class="text-with-margins">
             <div class = "section-title-over" style="padding-bottom: 0;">
-              <h3>USER EXPERIENCE DESIGN</h3>
+              <!--<h3>UX DESIGN CASE STUDY</h3> -->
+              <div class="sticky" style=" padding-bottom: 8vh; padding-left: 0;">
+                 <p class="project-tag">Featured : USYD ADP Grad Show 2024 · 1 of 30 Selected</p>
+                 </div>
             </div>
 
-          <h2 style="color: #8F84F8;">The Beach Camp - with Surf Life Saving</h2>
-          <p>Unpatrolled locations present a major obstacle in water safety and efforts to prevent drownings. Over the period from 2013 to 2023, three-quarters of unintentional coastal drowning deaths occurred more than one kilometre from a Surf Life Saving service, predominantly at times or locations without lifeguard supervision.
-             Despite the clear recommendation from organizations like Surf Life Saving Australia to swim at patrolled beaches during specified hours, practical challenges remain, particularly for people engaged in offshore activities or residing in regional and remote areas where access to lifeguard services is limited.
+          <!--<h2 style="color: #8F84F8;">The Beach Camp - with Surf Life Saving</h2>-->
+
+
+          <p>How do you change someone's behavior at the beach without telling them what to do? That was the core design question behind Beach Camp : a project with Surf Life Saving Australia to address the alarming rate of drownings at unpatrolled beaches. From 2013–2023, three-quarters of coastal drowning deaths occurred more than 1km from a Surf Life Saving service.
               </p>
               <br>
               <h4 style="color: #b7b7b7; padding-top: 5%; font-weight: 500;">STATISTICS</h4>
               <p>
-                In 2022/23, the drowning profile showed a widespread distribution across age groups, particularly affecting individuals aged 24-55 years, who comprised 68% of coastal drowning fatalities. Males constituted 80% of these deaths and were five times more susceptible to drowning compared to females.
+                In 2022/23, 68% of coastal drowning fatalities involved people aged 24–55. Males made up 80% of deaths and were five times more susceptible than females.
               </p>
               <img src="assets/img/beach/stats.png" class="img-fluid" alt="stats" loading="lazy" style="padding-left: 10%; padding-right: 10%; padding-top: 5%;">
               <br>
-              <h3 style="color: #757575; padding-top: 10%;">My Role  </h3>
-            <p>
+              <h3 style="color: #757575; padding-top: 5%;">My Role  </h3>
+            <p style="padding-bottom: 5vh;">
               <ul>
                 <li>User Flow Design</li>
-                <li>User testing</li>
+                <li>User Testing</li>
                 <li>Storyboard Creation</li>
-                <li>Graphical representation</li>
-                <li>Evaluating Concepts (Model of Engagement + real life implications)</li>
-                <li>Concept Developement</li>
+                <li>Graphical Representation</li>
+                <li>Concept Evaluation (Model of Engagement + real-world implications)</li>
+                <li>Concept Development</li>
                 <li>Feasibility and Practicality</li>
                 </ul>
             </p>
-
-
-              <div class="card sizing " style="background-color: #FFD2A5; margin-top: 5%;" data-aos="fade-left">
+            
+<!--
+            <div class="card sizing " style="background-color: #FFD2A5; margin-top: 5%;" data-aos="fade-left">
                 <div class="card-body">
                    
                     <p class="sticky">This project was the stand-out contribution out of the 30 submissions overall, and was nominated for the 2024 USYD ADP Graduate Showcase end of year Exhibition.</p>
                 </div>
-              </div>
-            
+              </div>-->
 
         </div>
       </div>
@@ -165,15 +318,16 @@
 
        <!-------   MY GOALS DIVISION -------->
 
-       <div class="wave" style=" background-color: #cbe2ff; width: 100%;">
+       <div class="wave" style=" background-color: #ffffff; width: 100%;">
        </div>
         
-       <div class= "frame-bg" style=" background-color: #ADC9FF; width: 100%;">
+       <div class= "frame-bg" style=" background-color: #ADC9FF; width: 100%; padding-top: 40px;" >
 
         <div class="container" style="padding: 30px; padding-top: 40px;" data-aos="fade-up">
-          <div class="text-with-margins">
-          <h3>The Goal </h3>
-          <p><strong> prevent drowning deaths among beachgoers,</strong> the focus should shift towards modifying their beach behavior rather than solely educating them, <strong>emphasizing individual responsibility</strong> (by making people responsible for their own safety).
+          <div class="text-with-margins"> <div class = "section-title-over">
+              <h3 style="font-size: 150%; color: #F6F7F1;">THE GOAL</h3>
+            </div>
+          <p style="font-size: 175%; color: #F6F7F1;">To <strong>reduce drowning deaths</strong> by shifting beach behavior, not through more education, but by <strong>making safety feel like a choice people want to make.</strong>
           </p>
         </div>
 
@@ -184,53 +338,51 @@
       <!--end of GOALS-->
 
         <!-- ======= Defining the problem ======= -->
-        <div class= "frame-bg" style=" background-color:  #ADC9FF;; width: 100%; padding-bottom: 40px;">
+         
+        <div class= "frame-bg" style=" background-color:  #ADC9FF;; width: 100%; padding-bottom: 40px; padding-top: 0px;">
 
     
-          <div class="container padding" style="padding-top: 50px;" data-aos="fade-up"> 
+          <div class="container padding" style="padding-top: 70px;" data-aos="fade-up"> 
             <div class="text-with-margins"> 
                 <h3> Defining the problem </h3>
-
-                <div class="container mt-5">
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <div class="panel">
-                        <img class="img-fluid" src="./assets/img/beach/panel1.jpg" alt="Panel 1" style="border: 2px solid #000;">
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="panel">
-                        <img class="img-fluid" src="./assets/img/beach/panel2.jpg" alt="Panel 2" style="border: 2px solid #000;">
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="panel">
-                        <img class="img-fluid" src="./assets/img/beach/panel3.jpg" alt="Panel 3" style="border: 2px solid #000;">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-4 mb-3">
+      <div class="panel">
+        <img class="img-fluid" src="./assets/img/beach/panel1.jpg" alt="Panel 1" style="border: 2px solid #000;">
+      </div>
+    </div>
+    <div class="col-lg-4 mb-3">
+      <div class="panel">
+        <img class="img-fluid" src="./assets/img/beach/panel2.jpg" alt="Panel 2" style="border: 2px solid #000;">
+      </div>
+    </div>
+    <div class="col-lg-4 mb-3">
+      <div class="panel">
+        <img class="img-fluid" src="./assets/img/beach/panel3.jpg" alt="Panel 3" style="border: 2px solid #000;">
+      </div>
+    </div>
+  </div>
+</div>
                   <br>
                   <div style=" padding-left: 10%; padding-right: 10%;">
-                    <h4 style="color: #5b5b5c; padding-top: 10%; font-weight: 600; font-size: 100%;">#1 PROBLEM : OVERCONFIDENCE</h4>
+                    <h4 style="color: #5b5b5c; padding-top: 5%; font-weight: 600; font-size: 120%;">#1 PROBLEM: OVERCONFIDENCE</h4>
                     <p style="font-size: 90%; color: #000000;">
-                      Currently people rely on their own judgement and believe their experiences have equipped them to be self sufficient in a crisis.
+                      Beachgoers trust their own judgment, believing past experience makes them capable of handling a crisis.
                     </p>
                   </div>
 
                   <div style=" padding-left: 10%; padding-right: 10%;">
-                    <h4 style="color: #5b5b5c; padding-top: 10%; font-weight: 600; font-size: 100%;">#1 PROBLEM : SAFETY INFORMATION</h4>
+                    <h4 style="color: #5b5b5c; padding-top: 5%; font-weight: 600; font-size: 120%;">#2 PROBLEM: SAFETY INFORMATION</h4>
                     <p style="font-size: 90%; color: #000000;">
-                      Beachgoers do not fully comprehend the current safety signages and information provided by SLA, often overlooking existing information.
+                      Existing safety signage and SLS information is widely ignored or misunderstood.
                     </p>
                   </div>
 
                   <div style=" padding-left: 10%; padding-right: 10%;">
-                    <h4 style="color: #5b5b5c; padding-top: 10%; font-weight: 600; font-size: 100%;">#3 PROBLEM : EDUCATION</h4>
+                    <h4 style="color: #5b5b5c; padding-top: 5%; font-weight: 600; font-size: 120%;">#3 PROBLEM: EDUCATION GAPS</h4>
                     <p style="font-size: 90%; color: #000000;">
-                      Beach safety education is well-implemented in local coastal areas, but tourists and new immigrants often lack awareness of these initiatives.
+                      Beach safety campaigns reach local audiences but miss tourists and new immigrants most at risk.
                     </p>
                   </div>
 
@@ -244,26 +396,23 @@
 
         
         <!-- ======= Reframing of the Breif ======= -->
+
         <div class= "frame-bg" style=" background-color: #F6F7F1; width: 100%; padding-bottom: 40px;">
 
     
           <div class="container padding" style="padding-top: 50px;" data-aos="fade-up"> 
             <div class="text-with-margins"> 
                 <h3> Reframing of the Brief </h3>
-                  <p  style="padding-top: 10px;">
-          
-                    In response to the original brief, we aimed to develop innovative technological approaches to communicate risk and educate people. Our exploration of technologies and review of similar interventions revealed scepticism towards existing safety products, as devices alone cannot ensure safety.
+                  <p style="padding-top: 10px;">
+                    Rather than designing another safety warning, we asked: <strong>what if we redirected risky behavior instead of trying to stop it?</strong>
                   </p>
                   <p>
-                    Our research, including interviews and articles, highlights the human desire for adventure, leading individuals to explore unpatrolled or dangerous beaches. Previous campaigns to educate beachgoers have had limited success, as many believe they already possess sufficient beach safety knowledge, leading to overconfidence.
+                    Research (interviews + literature) showed that people seek out unpatrolled beaches for adventure, and that most believe they already know enough about safety. Education-first campaigns consistently failed because they addressed the wrong problem.
                   </p>
                   <br>
                   <h3>Framing the Solution </h3>
                 <p style="padding-top: 10px;">
-          
-                  We focused on the theme of personal growth in our analysis and explored experiences that prioritize self-improvement. Drawing inspiration from the transformative environment of a Yoga retreat, we envisioned a new approach to our problem.
-                  This led us to establish design principles aimed at influencing individual behavior on the beach, integrating elements that help people use our intervension and help keep them safe.
-
+                  Inspired by the behavior-change environment of a yoga retreat, we shifted our focus to <strong>influencing behavior through positive experience</strong> rather than warning or instruction. We established design principles to guide this approach.
                 </p>
 
 
@@ -271,32 +420,26 @@
 
                   <h4 style="color: #5b5b5c;  font-weight: 600; font-size: 100%;">PREVENTATIVE BEHAVIOUR</h4>
                   <p style="font-size: 90%; color: #000000;">
-                    According to <strong>"Prospect Theory"</strong><i>(Kahneman & Tversky, 1977)</i>, individuals focus on avoiding losses under risk or uncertainty, making them more inclined toward preventative behavior. 
-                    Preventing incidents is more beneficial than solving problems, which may have multiple causes. Our product aims to shift attention from risky activities to fun, safer alternatives without changing beachgoers' perceptions of their swimming abilities. 
-                    Over time, this will create a positive association with the product, making its use a regular part of beach visits.
+                    <strong>Prospect Theory</strong> <i>(Kahneman & Tversky, 1977)</i> tells us people are more motivated by avoiding loss than gaining safety. Our solution doesn’t lecture : it offers fun alternatives that naturally draw people toward safer zones, creating a positive habit over time.
                   </p>
               
             </div>
           </div>
 
         </div>
+        </div>
         
       <!-- End Reframing -->
 
     
-      <!-- ======= Design Principles ======= -->
+      <!-- ======= Design Principles ======= 
       <div class= "frame-bg wave-norm" style=" background-color: #cbe2ff; width: 100%; padding-bottom: 40px;">
 
     
         <div class="container padding" style="padding-top: 50px;" data-aos="fade-up"> 
           <div class="text-with-margins"> 
-            <h3>Designs Principles </h3>
-              <p>
-          
-                We focused on the theme of personal growth in our analysis and explored experiences that prioritize self-improvement. Drawing inspiration from the transformative environment of a Yoga retreat, we envisioned a new approach to our problem.
-                This led us to establish design principles aimed at influencing individual behavior on the beach, integrating elements that help people use our intervension and help keep them safe.
-
-               </p>
+            <h3>Design Principles </h3>
+              <p>Five principles shaped every design decision in Beach Camp:</p>
                 <br>
         
                 <div class="circle-container">
@@ -329,35 +472,35 @@
               <div style=" padding: 0% 0% 2% 10%;">
               <h4 style="color: #405270; padding-top: 10%; font-weight: 600; font-size: 100%;">#1 USABILITY</h4>
               <p style="font-size: 90%; color: #000000;">
-                Based on user feedback from a casual interview, frustrations with the complexity of the Beach Safe app have prompted us to prioritize usability in our design, aiming to simplify interactions and information presentation for all users.
+                User interviews revealed frustration with existing safety apps being too complex. We prioritized simplicity: one tap to critical information.
               </p>
             </div>
                
             <div style=" padding: 0% 10% 5% 10%; ">
               <h4 style="color: #405270; padding-top: 10%; font-weight: 600; font-size: 100%;">#2 INTERACTIVITY</h4>
               <p style="font-size: 90%; color: #000000;">
-                The principle focuses on engaging users through interactive, adventure-driven challenges that simulate real beach scenarios, making safety education dynamic and immersive.
+                Adventure-driven challenges simulate real beach scenarios — making safety dynamic rather than didactic.
               </p>
             </div>
 
             <div style="padding: 0% 10% 5% 10%;">
               <h4 style="color: #405270; padding-top: 10%; font-weight: 600; font-size: 100%;">#3 EDUCATIONAL IMPACT</h4>
               <p style="font-size: 90%; color: #000000;">
-                This approach uses augmented reality (AR) and game-like features to make learning about beach safety fun and interactive. It includes real-time AR reminders and activities that help users learn how to stay safe and gain useful skills, making learning enjoyable and engaging.
+                AR features embed safety education into gameplay — real-time reminders and activities that teach skills without feeling like a lesson.
               </p>
             </div>
 
             <div style="  padding: 0% 10% 5% 10%;">
               <h4 style="color: #405270; padding-top: 10%; font-weight: 600; font-size: 100%;">#4 COMMUNITY ENGAGEMENT</h4>
               <p style="font-size: 90%; color: #000000;">
-                Our idea improves community involvement to tackle isolated beach visits, especially at unguarded beaches. It offers a platform for users to share experiences, safety advice, and plan visits together, using community support to boost safety for everyone involved.
+                Beach-specific social forums connect users to share updates, plan visits, and look out for each other — especially at isolated locations.
               </p>
             </div>
 
             <div style=" padding: 0% 10% 5% 10%;">
               <h4 style="color: #405270; padding-top: 10%; font-weight: 600; font-size: 100%;">#5 INCLUSIVITY</h4>
               <p style="font-size: 90%; color: #000000;">
-                The rebrief highlights diverse user demographics, requiring features that are easy to use and valuable to all users, regardless of their technical skills or beach knowledge. This approach aims to ensure the app benefits the entire beach community equally.
+                Designed for diverse demographics — accessible regardless of technical skill, beach experience, or language.
               </p>
             </div>
                 
@@ -374,11 +517,8 @@
       <div class="container padding" style="padding-top: 50px;" data-aos="fade-up"> 
         <div class="text-with-margins"> 
         <h3>What is Beach Camp? </h3>
-        <p class="fst-italic" style="padding-top: 4%;">
-          <strong>"Beach Camp"</strong> directly addresses the main challenge outlined in the brief: the alarming rates of accidents at unpatrolled beaches due to a lack of awareness and engagement with safety measures.
-           By leveraging widely used platforms like Google Maps for<strong> easy access and visibility</strong> , and integrating engaging <strong>AR features and community forums</strong>, Beach Camp transforms beach safety education from a <strong>passive to an active and enjoyable experience.</strong>
-            This approach raises awareness about beach hazards also fosters a proactive beachgoing community that values and practices safety, effectively reducing the risks associated with unpatrolled beaches.
-
+        <p style="padding-top: 4%;">
+          <strong>Beach Camp</strong> is a beach safety app that integrates with <strong>Google Maps</strong> and uses <strong>AR gaming and community forums</strong> to redirect beachgoers toward patrolled areas, not by warning them, but by making patrolled beaches more rewarding to visit.
         </p>
 
         
@@ -435,7 +575,7 @@
         
 
           <p style="padding-top: 6%;">
-            This gamified approach fosters a safety culture in the beach community and promotes ongoing app use by allowing points to be redeemed for prizes. The app attempts to prevent drowning by diverting users to the safe zones (patrolled areas).
+            Rare collectible cards are only available at patrolled beaches; so the game itself becomes the mechanism for steering users away from danger.
           </p>
 
         </div>
@@ -449,27 +589,29 @@
 
 
     <!-- ======= Features Section ======= -->
-    <div class= "frame-bg" style=" background-color: #d7d7fc; width: 100%; padding-bottom: 5%;">
 
-    
-      <div class="container padding" style="padding-top: 5%;" data-aos="fade-up"> 
-        <div class="text-with-margins">
+    <div class="wave" style=" background-color: #f6f7f1; width: 100%;">
+    </div>
+     
+    <div class= "frame-bg" style=" background-color: #ADC9FF; width: 100%;">
 
+     <div class="container" style="padding: 30px; padding-top: 40px;" data-aos="fade-up">
+       <div class="text-with-margins">
+
+        
         <h3>Application Prototype </h3>
-        <p class="fst-italic">
-          This prototype showcases the culmination of extensive research, user feedback, and iterative design processes aimed at creating an interactive experience using Figma.
-           The prototype illustrates our approach to integrating augmented reality (AR) and with real-time safety information and encourage responsible beach behaviorby users.
+        <p>
+          Built in Figma after multiple rounds of user feedback. The prototype demonstrates AR integration, real-time safety overlays, and the community forum experience.
             <div class="icon-box mt-6">
               <div class="figma-container">
                 <iframe class="figma-embed" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FXy60XlBQpT18IUA64AAI2g%2FBeach-Camp-Prototype%3Fpage-id%3D0%253A1%26node-id%3D513-3457%26viewport%3D277%252C1165%252C0.19%26t%3DEvUjP7epH30kP9dm-1%26scaling%3Dscale-down%26starting-point-node-id%3D200%253A167" allowfullscreen></iframe>
             </div>
-          
-          
-            </div>
+
+  
+
           </div>
-          
-        </div>
-      </div>
+      </div> 
+    </div>
     <!-- End Features Section -->
   </div>
 
@@ -479,7 +621,7 @@
         <div class="text-with-margins">
         <h3>StoryBoard</h3>
         <p>
-          This storyboard follows Alex, who discovers Beach Camp through Google Maps. It captures his journey from finding the app to using its features, such as real-time safety updates, AR-guided safe zones, and community engagement tools. Alex's experiences illustrate how Beach Camp enhances beach safety and fosters a connected community of beachgoers.
+          Alex discovers Beach Camp via Google Maps, joins the Coogee Beach community channel, follows AR guides and ends up at a patrolled beach because that’s where the rare cards are.
          </p>
           <div class="container-fluid" style="padding-top: 30px;" >
           <div id="carouselExample" class="carousel slide">
@@ -557,8 +699,8 @@
     <div class="container padding" style="padding-top: 50px;" data-aos="fade-up">
       <div class="text-with-margins">
         <h3>Conceptual Video</h3>
-        <p class="fst-italic">
-          This video provides a basic look at the game's core features and mechanics, illustrating its reward collection system and its interactive experiences. It demonstrates our approach to provide an exciting option that subtly leads people away from danger(Unpatrolled beaches) and the redeeming option that is available. 
+        <p>
+          A walkthrough of Beach Camp’s core mechanics, showing how the AR reward system subtly steers users away from unpatrolled beaches without ever telling them what not to do.
         </p>
     </div>
 
@@ -586,13 +728,12 @@
   </div><!-- End Counts Section -->
 
  <!-- ======= Journey Map ======= -->
-<div class="frame-bg" style="background-color: #ffffff; width: 100%;">
+<div class="frame-bg" style="background-color: #ffffff; width: 100%; padding-bottom: 15vh;">
   <div class="container padding" style="padding-top: 50px;" data-aos="fade-up">
     <div class="text-with-margins">
       <h3>Journey Map</h3>
       <p>
-        The journey map for Beach Camp outlines our 10-week development process, detailing key learnings and milestones each week. It illustrates our iterative approach, from concept exploration and demographic research to prototype development and implementation.
-        This map highlights how we integrated feedback, overcame challenges, and applied design principles to create an engaging solution for beach safety and community engagement.
+        A 10-week development map showing how we moved from concept exploration and user research to a tested, exhibition-ready prototype, with the key pivots that shaped the final design.
      </p>
       <div class="container-fluid">
         <img src="./assets/img/beach/map.png" alt="Journey Map" data-aos="zoom-in" width="100%" loading="lazy" data-toggle="modal" data-target="#lightboxModal">
@@ -614,51 +755,7 @@
 <!-- End Journey Map -->
 
 
-    <!-- ======= Product Analysis ======= -->
-    <div class="wave" style=" background-color: #ffffff; width: 100%;">
-    </div>
-     
-    <div class= "frame-bg" style=" background-color: #ADC9FF; width: 100%;">
-
-     <div class="container" style="padding: 30px; padding-top: 40px;" data-aos="fade-up">
-       <div class="text-with-margins">
-
-    
-         <h3>What do we hope to acheive in the future? </h3>
-        
-            <p style="font-size: 90%; color: #000000;">
-              
-                <p style=" color: #000000; padding-top: 2%;"><strong>Guidance from Google Maps:</strong>  To enhance the transition to the SLA app, consider implementing clearer prompts or incentives. For example, offering exclusive safety tips or rewards upon app installation could motivate users to make the transition.</p>
-                <p style=" color: #000000; padding-top: 2%;"><strong>Community Integration</strong> Since the forum module is effective, continue to promote and encourage community interaction. Consider adding features such as live chat sessions with lifeguards or regular safety webinars to further foster connections and safety through companionship.</p>
-                <p style=" color: #000000; padding-top: 2%;"><strong>AR Adventure Game:</strong> To address accessibility issues such as eye fatigue and adaptation challenges for older users, provide options for users to toggle between AR and non-AR modes. Implement voice-guided instructions or text-based cues for those who prefer not to use AR. Ensure that the game environment is customizable in brightness and contrast to reduce eye strain.</li>
-                <p style=" color: #000000; padding-top: 2%;"><strong>Gamification and Rewards:</strong> Diversify rewards to appeal to a broader audience. Consider offering physical rewards like beach gear, as well as virtual rewards such as exclusive badges or titles. Ensure that rewards are attainable through various activities, not just through the AR game.</p>
-                <p style=" color: #000000; padding-top: 2%;"><strong>Competition and Incentives: </strong> To maintain long-term engagement, introduce a variety of challenges that cater to different interests and skill levels. Consider seasonal challenges tied to beach safety events or themed challenges related to environmental awareness.</p>
-             
-             <p style="color: #000000; padding-top: 5%;"> By implementing these improvements, Beach Camp will evolve into a more inclusive, engaging, and effective platform for promoting beach safety and community engagement. It could also become a part of the beach going ritual and provide entertainment for individual beach goers.</p>
-            </p>
-
-            <div class="white-box" style="margin-top: 6%;">
-            <h4 style="color: #405270; font-weight: 600; font-size: 150%;">REFLECTION</h4>
-            <p style="font-size: 90%; color: #000000;">
-              I have always loved Australian beaches and often sought out unpatrolled, hidden ones to avoid the crowds. As I delved into the research and interacted with our client, Surf Life Saving, the dangers I faced every time I visited these unmarked beaches became very apparent.
-            </p>
-            <p style="font-size: 90%; color: #000000;">
-              The brief from our client emphasized the necessity of using technology to communicate the risks of unpatrolled beaches, prompting us to begin working toward this goal.
-            </p>
-            <p style="font-size: 90%; color: #000000;">
-              As we advanced in our design process and research, I started investigating why many educational campaigns fail. We opted for a different approach: using distraction as a prevention method, which intrigued me and prompted further exploration.
-            </p>
-            <p style="font-size: 90%; color: #000000;">
-              The concept of employing ego and distraction through a specific item of interest has fascinated me. Implementing this through an AR game seemed like a step closer to the digital revolution we live in, and I believe it would be more easily assimilated into people's routines than an educational pamphlet.
-            </p>
-          </div>
-
-          </div>
-
-
-          </div>
-      </div> 
-    </div>
+    <!-- ======= Product Analysis ======= 
 
     <section>
       <div class="container">
@@ -668,7 +765,7 @@
                     <img src="./assets/img/beach/display.jpg" class="card-img-top" alt="Image 1">
                     <div class="card-body">
                         <h5 class="card-title">Our Display</h5>
-                        <p class="card-text">In the 13th week of the semester, we developed an artifact for Surf Life Saving (SLS) and peers to view our Beach Camp intervention and experience its intended functionality.</p>
+                        <p class="card-text">In week 13, we built a physical exhibit for Surf Life Saving and peers to interact with Beach Camp and experience its full functionality.</p>
                        
                     </div>
                 </div>
@@ -678,7 +775,7 @@
                     <img src="./assets/img/beach/reviews.jpg" class="card-img-top" alt="Image 2">
                     <div class="card-body">
                         <h5 class="card-title">Review Wall</h5>
-                        <p class="card-text">We received valuable feedback on how to improve our Beach Camp prototype and identified key areas that should receive more attention, as they are critical to attracting users due to their functionality.</p>
+                        <p class="card-text">Feedback from SLS and peers identified the highest-priority areas for improvement before wider rollout.</p>
                     </div>
                 </div>
             </div>
@@ -687,7 +784,7 @@
                     <img src="./assets/img/beach/exhibit.jpg" class="card-img-top" alt="Image 3">
                     <div class="card-body">
                         <h5 class="card-title">The Artefact</h5>
-                        <p class="card-text">We included a storyboard, a hard copy of all screens developed on Figma for easy interaction, and a video showcasing the Unity component of our Beach Camp project. This provided our audience with the best possible experience of our intervention.</p>
+                        <p class="card-text">The exhibit included printed Figma screens, a storyboard, and a Unity video demo — giving visitors a hands-on experience of the full intervention.</p>
                        
                     </div>
                 </div>
@@ -697,13 +794,13 @@
                     <img src="./assets/img/beach/group.jpg" class="card-img-top" alt="Image 4">
                     <div class="card-body">
                         <h5 class="card-title">Our Group</h5>
-                        <p class="card-text">Our group included three interface designer who focused on applying the concepts practically and one innovation designer who managed the project's workflow and timelines using Gantt charts, providing clear task definitions and schedules. </p>
+                        <p class="card-text">Three interface designers (including me) handled concept and UI; one innovation designer managed workflow and timelines.</p>
                         
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     
     </section>
      
